@@ -425,7 +425,11 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 #urlbar-container {
+  transition: max-width .25s !important;
   max-width: 219px !important;
+&:has(#urlbar:is(:hover, [focused], [open]), .urlbar-page-action[open], .identity-box-button[open], #notification-popup-box[open], #trust-icon-container[open]) {
+  max-width: 315px !important;
+}
 }
 
 #TabsToolbar {
@@ -611,11 +615,11 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 
 @media -moz-pref("gwt.oneliner") and (not -moz-pref("sidebar.verticalTabs")) {
 &:not([customizing]) {
-#forward-button[disabled] {
+#back-button[disabled], #forward-button[disabled] {
   display: none;
 }
 #back-button[disabled]:has(+ #forward-button:not([disabled])) {
-  display: none;
+  display: flex;
 }
 #back-button:has(+ #forward-button[disabled]) {
   max-width: 36px !important;
@@ -627,18 +631,6 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 > .toolbarbutton-icon {
   margin-inline-start: -6px;
 }
-}
-}
-&:has(#back-button[disabled]) #forward-button {
-  max-width: 36px !important;
-  min-width: 36px !important;
-  margin-inline-start: 8px !important;
-  background: var(--bg5) !important;
-  box-shadow: var(--bs3);
-  border-radius: 50px !important;
-  border-image: none !important;
-> .toolbarbutton-icon {
-  margin-inline-start: -1px;
 }
 }
 }
@@ -684,20 +676,28 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   height: 36px !important;
   position: fixed;
   top: 0;
-  right: 134px;
   z-index: 9;
 @media -moz-pref("gwt.oneliner") {
-  right: 62px;
-:has(#PanelUI-menu-button:hover, #unified-extensions-button:hover, #alltabs-button:hover, #nav-bar-overflow-button:hover, #PanelUI-menu-button[open], #unified-extensions-button[open], #alltabs-button[open], #nav-bar-overflow-button[open]) & {
+  margin-inline: 8px !important;
+}
+@media not -moz-pref("gwt.oneliner") {
   right: 134px;
+:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) & {
+  right: 170px;
 }
 }
 > image {
   padding: 10.5px !important;
 }
-:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) & {
-  right: 170px;
+}
 @media -moz-pref("gwt.oneliner") {
+#new-tab-button {
+  margin-inline: 0 !important;
+  right: 62px;
+:has(#PanelUI-menu-button:hover, #unified-extensions-button:hover, #alltabs-button:hover, #nav-bar-overflow-button:hover, #PanelUI-menu-button[open], #unified-extensions-button[open], #alltabs-button[open], #nav-bar-overflow-button[open]) & {
+  right: 134px;
+}
+:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) & {
   right: 62px;
 :has(#PanelUI-menu-button:hover, #unified-extensions-button:hover, #alltabs-button:hover, #nav-bar-overflow-button:hover, #PanelUI-menu-button[open], #unified-extensions-button[open], #alltabs-button[open], #nav-bar-overflow-button[open]) & {
   right: 170px;
@@ -722,13 +722,11 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   width: 26px !important;
   height: 26px !important;
   padding: 5px 4px 4px 5px !important;
-}
-  
+}  
 :has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) & {
   inset-inline-end: 77px;
 }
 }
-
 .webextension-browser-action .toolbarbutton-icon {
   margin-left: 1px !important;
   margin-top: 1px !important;
@@ -962,12 +960,15 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 @media -moz-pref("gwt.oneliner") and (not -moz-pref("sidebar.verticalTabs")) {
 &[breakout][breakout-extend] .urlbarView {
-  margin-inline-start: -50% !important;
-  min-width: 200% !important;
+  margin-inline-start: -25% !important;
+  min-width: 150% !important;
 }
 
 .urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
   mask-image: linear-gradient(to left, transparent, #fff 15ch) !important;
+#urlbar:is(:hover, [focused], [open]) & {
+  mask-image: none !important;
+}
 }
 
 &:not(:has(#identity-box[pageproxystate="valid"].extensionPage)) {
@@ -1176,7 +1177,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   opacity: 1;
 }
 > .searchmode-switcher-content {
-  margin-inline-start: 52px;
+  margin-inline-start: 55px;
 &::before {
   content: url("chrome://global/skin/icons/search-glass.svg");
   -moz-context-properties: fill;
