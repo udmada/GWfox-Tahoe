@@ -1048,8 +1048,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   height: 36px !important;
   align-items: center !important;
   border-radius: 50px !important;
-  padding-inline-start: 5px !important;
-  padding-inline-end: 5px !important;
+  padding-inline: 5px !important;
 .urlbar-input {
 #urlbar:not([focused], [usertyping]) & {
   text-align: center !important;
@@ -1170,10 +1169,13 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 
 .searchmode-switcher {
   --button-background-color: transparent !important;
+  margin-inline-end: 2px !important;
 .urlbar:not(#searchbar-new)[searchmode] & {
   background-color: var(--button-hover-bgcolor) !important;
   border-radius: 16px !important;
   width: unset !important;
+  margin-inline-start: -10px !important;
+  margin-inline-end: -5px !important;
   opacity: 1;
 }
 > .searchmode-switcher-content {
