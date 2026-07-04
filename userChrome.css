@@ -2947,6 +2947,10 @@ sidebar-tab-row {
   list-style-image: url("chrome://browser/skin/tracking-protection.svg");
 }
 
+#identity-icon-label[value="Firefox"] {
+  display: none !important;
+}
+
 .tabbrowser-tab:is([label="新标签页"], [label="New tab"]) .tab-icon-image,
 .tab-icon-image:is([src="chrome://branding/content/icon32.png"], [src="chrome://browser/skin/privatebrowsing/favicon.svg"]) {
   content: url("chrome://global/skin/icons/defaultFavicon.svg");
@@ -3765,6 +3769,12 @@ tab-group > .tabbrowser-tab,
 }
 &:is(:hover:active, [open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
   background-color: transparent !important;
+}
+}
+
+#urlbar-container {
+@media (min-width: 610px) and (max-width: 866px) {
+  max-width: 60% !important;
 }
 }
 
