@@ -7,20 +7,20 @@
 
 @media (-moz-mac-tahoe-theme) {
   :root {
-    --bg0: #8867fc;
-    --bg1: light-dark(rgba(70, 70, 70, 0.08), rgba(170, 170, 170, 0.08));
-    --bg2: light-dark(rgba(70, 70, 70, 0.15), rgba(170, 170, 170, 0.15));
-    --bg3: light-dark(rgba(70, 70, 70, 0.2), rgba(170, 170, 170, 0.2));
-    --bg4: light-dark(rgba(255, 255, 255, 0.55), rgba(25, 25, 25, 0.55));
-    --bg5: light-dark(rgba(255, 255, 255, 0.75), rgba(15, 15, 15, 0.75));
-    --bg6: light-dark(rgba(255, 255, 255, 0.6), rgba(15, 15, 15, 0.6));
+    --bg0: oklch(62.4% 0.21 289);
+    --bg1: light-dark(oklch(39.4% 0 0 / 0.08), oklch(73.8% 0 0 / 0.08));
+    --bg2: light-dark(oklch(39.4% 0 0 / 0.15), oklch(73.8% 0 0 / 0.15));
+    --bg3: light-dark(oklch(39.4% 0 0 / 0.2), oklch(73.8% 0 0 / 0.2));
+    --bg4: light-dark(oklch(100% 0 0 / 0.55), oklch(21.3% 0 0 / 0.55));
+    --bg5: light-dark(oklch(100% 0 0 / 0.75), oklch(16.8% 0 0 / 0.75));
+    --bg6: light-dark(oklch(100% 0 0 / 0.6), oklch(16.8% 0 0 / 0.6));
     --bg7: color-mix(in srgb, var(--bg0), transparent 75%);
     --bs1:
-      0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 0 0.5px rgba(0, 0, 0, 0.34),
-      0 0 0 0.5px rgba(0, 0, 0, 0.12);
+      0 5px 15px oklch(0% 0 0 / 0.2), inset 0 0 0 0.5px oklch(0% 0 0 / 0.34),
+      0 0 0 0.5px oklch(0% 0 0 / 0.12);
     --bs2:
-      0 5px 15px rgba(0, 0, 0, 0.25), inset 0 0 0 0.5px rgba(0, 0, 0, 0.78),
-      0 0 0 0.5px rgba(0, 0, 0, 0.2);
+      0 5px 15px oklch(0% 0 0 / 0.25), inset 0 0 0 0.5px oklch(0% 0 0 / 0.78),
+      0 0 0 0.5px oklch(0% 0 0 / 0.2);
     --newtab-background-color-secondary: transparent !important;
     --border-color-interactive: var(--in-content-box-border-color) !important;
     --in-content-focus-outline-color: var(--focus-outline-color) !important;
@@ -40,7 +40,7 @@
     --in-content-primary-button-background-active: var(
       --color-accent-primary-active
     ) !important;
-    --in-content-primary-button-text-color: #fff !important;
+    --in-content-primary-button-text-color: oklch(100% 0 0) !important;
     --checkbox-checked-bgcolor: var(--color-accent-primary) !important;
     --checkbox-checked-hover-bgcolor: var(
       --color-accent-primary-hover
@@ -56,52 +56,52 @@
     --color-accent-primary-hover: color-mix(
       in srgb,
       AccentColor 90%,
-      #fff
+      oklch(100% 0 0)
     ) !important;
     --color-accent-primary-active: color-mix(
       in srgb,
       AccentColor 90%,
-      #000
+      oklch(0% 0 0)
     ) !important;
     --color-accent-primary-selected: AccentColor !important;
-    --button-text-color-primary: #fff !important;
-    --border-color: rgba(105, 105, 105, 0.2) !important;
+    --button-text-color-primary: oklch(100% 0 0) !important;
+    --border-color: oklch(52.1% 0 0 / 0.2) !important;
     --in-content-box-border-color: light-dark(
-      rgba(0, 0, 0, 0.2),
-      rgba(225, 225, 225, 0.2)
+      oklch(0% 0 0 / 0.2),
+      oklch(91% 0 0 / 0.2)
     ) !important;
     --focus-outline-color: light-dark(
       color-mix(in srgb, AccentColor 55%, transparent),
-      color-mix(in srgb, AccentColor 45%, #555)
+      color-mix(in srgb, AccentColor 45%, oklch(45% 0 0))
     ) !important;
     @media -moz-pref("gwt.ac") {
       --color-accent-primary: light-dark(
         var(--bg0),
-        color-mix(in srgb, var(--bg0) 90%, #000)
+        color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
       ) !important;
       --color-accent-primary-hover: light-dark(
-        color-mix(in srgb, var(--bg0) 90%, #fff),
-        color-mix(in srgb, var(--bg0) 80%, #fff)
+        color-mix(in srgb, var(--bg0) 90%, oklch(100% 0 0)),
+        color-mix(in srgb, var(--bg0) 80%, oklch(100% 0 0))
       ) !important;
       --color-accent-primary-active: light-dark(
-        color-mix(in srgb, var(--bg0) 90%, #000),
-        color-mix(in srgb, var(--bg0) 80%, #000)
+        color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)),
+        color-mix(in srgb, var(--bg0) 80%, oklch(0% 0 0))
       ) !important;
       --color-accent-primary-selected: light-dark(
         var(--bg0),
-        color-mix(in srgb, var(--bg0) 90%, #000)
+        color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
       ) !important;
       --focus-outline-color: light-dark(
         color-mix(in srgb, var(--bg0) 55%, transparent),
-        color-mix(in srgb, var(--bg0) 45%, #555)
+        color-mix(in srgb, var(--bg0) 45%, oklch(45% 0 0))
       ) !important;
     }
     @media not -moz-pref("gwt.atbc") {
-      --in-content-page-background: light-dark(#fff, #202121) !important;
-      --newtab-background-color: light-dark(#fff, #202121) !important;
+      --in-content-page-background: light-dark(oklch(100% 0 0), oklch(24.7% 0 197)) !important;
+      --newtab-background-color: light-dark(oklch(100% 0 0), oklch(24.7% 0 197)) !important;
     }
     :-moz-window-inactive {
-      --bg7: color-mix(in srgb, #777, transparent 75%);
+      --bg7: color-mix(in srgb, oklch(56.9% 0 0), transparent 75%);
     }
   }
 
@@ -113,7 +113,7 @@
     --toggle-background-color-pressed-active: var(
       --color-accent-primary-active
     ) !important;
-    --toggle-dot-background-color-on-pressed: #fff !important;
+    --toggle-dot-background-color-on-pressed: oklch(100% 0 0) !important;
   }
 
   @media -moz-pref("gwt.ac") {
@@ -125,61 +125,61 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --text-color-accent-primary-selected: #fff !important;
-      --newtab-primary-element-text-color: #fff !important;
+      --text-color-accent-primary-selected: oklch(100% 0 0) !important;
+      --newtab-primary-element-text-color: oklch(100% 0 0) !important;
       @media not -moz-pref("gwt.atbc") {
-        --in-content-box-background: #282828 !important;
-        --in-content-table-background: #252525 !important;
-        --color-gray-80: #282828 !important;
-        --color-gray-90: #202121 !important;
+        --in-content-box-background: oklch(27.7% 0 0) !important;
+        --in-content-table-background: oklch(26.4% 0 0) !important;
+        --color-gray-80: oklch(27.7% 0 0) !important;
+        --color-gray-90: oklch(24.7% 0 197) !important;
       }
     }
 
     :root[dialogroot] {
       @media not -moz-pref("gwt.atbc") {
-        --background-color-canvas: #202121 !important;
+        --background-color-canvas: oklch(24.7% 0 197) !important;
       }
     }
 
     .home-section .section .sponsored-checkbox:checked:hover {
-      background-color: #436ee3 !important;
+      background-color: oklch(57.2% 0.18 266) !important;
     }
 
     @-moz-document url-prefix("about:") {
       @media not -moz-pref("gwt.atbc") {
         body {
-          background-color: #202121 !important;
+          background-color: oklch(24.7% 0 197) !important;
         }
       }
 
       * {
         --toolbar-button-foreground-active: AccentColor !important;
         --primary-color: AccentColor !important;
-        --selected-background: rgba(18, 128, 253, 0.2) !important;
-        --popup-background: #313131 !important;
-        --popup-button-background-hover: #383838 !important;
-        --popup-button-background-active: #2b2b2b !important;
-        --toolbar-button-background-hover: #383838 !important;
-        --toolbar-button-background-active: #2b2b2b !important;
+        --selected-background: oklch(61.5% 0.21 257 / 0.2) !important;
+        --popup-background: oklch(31.3% 0 0) !important;
+        --popup-button-background-hover: oklch(34.1% 0 0) !important;
+        --popup-button-background-active: oklch(28.9% 0 0) !important;
+        --toolbar-button-background-hover: oklch(34.1% 0 0) !important;
+        --toolbar-button-background-active: oklch(28.9% 0 0) !important;
         @media -moz-pref("gwt.ac") {
           --toolbar-button-foreground-active: color-mix(
             in srgb,
             var(--bg0) 90%,
-            #000
+            oklch(0% 0 0)
           ) !important;
-          --primary-color: color-mix(in srgb, var(--bg0) 90%, #000) !important;
+          --primary-color: color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)) !important;
         }
         @media not -moz-pref("gwt.atbc") {
-          --fxview-background-color: #202121 !important;
-          --in-content-page-background: #202121 !important;
-          --background-color-canvas: #202121 !important;
-          --input-text-background-color: #282828 !important;
+          --fxview-background-color: oklch(24.7% 0 197) !important;
+          --in-content-page-background: oklch(24.7% 0 197) !important;
+          --background-color-canvas: oklch(24.7% 0 197) !important;
+          --input-text-background-color: oklch(27.7% 0 0) !important;
         }
       }
 
       #migrationWizardDialog {
         @media not -moz-pref("gwt.atbc") {
-          background: #202121 !important;
+          background: oklch(24.7% 0 197) !important;
         }
       }
     }
@@ -188,8 +188,8 @@
   @-moz-document url-prefix("about:"), regexp("chrome:\/\/(?!devtools).*") {
     input[type="search"] {
       background-color: light-dark(
-        rgba(85, 85, 85, 0.1),
-        rgba(190, 190, 190, 0.1)
+        oklch(45% 0 0 / 0.1),
+        oklch(80.2% 0 0 / 0.1)
       ) !important;
       border-color: transparent !important;
       outline-style: solid !important;
@@ -221,8 +221,8 @@
 
     search-textbox {
       background: light-dark(
-        rgba(85, 85, 85, 0.1),
-        rgba(190, 190, 190, 0.1)
+        oklch(45% 0 0 / 0.1),
+        oklch(80.2% 0 0 / 0.1)
       ) !important;
       border-color: transparent !important;
       outline-style: solid !important;
@@ -233,8 +233,8 @@
     input[type="checkbox"]:not(.reveal-password-checkbox) {
       appearance: none !important;
       background-color: light-dark(
-        rgba(70, 70, 70, 0.12),
-        rgba(170, 170, 170, 0.15)
+        oklch(39.4% 0 0 / 0.12),
+        oklch(73.8% 0 0 / 0.15)
       ) !important;
       border-radius: 4px !important;
       border: none !important;
@@ -245,38 +245,38 @@
         background-repeat: no-repeat;
         background-position: center;
         -moz-context-properties: fill, stroke;
-        fill: #fff;
-        stroke: #fff;
+        fill: oklch(100% 0 0);
+        stroke: oklch(100% 0 0);
         border: none !important;
         &:hover {
           background-color: color-mix(
             in srgb,
             AccentColor 90%,
-            #fff
+            oklch(100% 0 0)
           ) !important;
         }
         &:hover:active {
           background-color: color-mix(
             in srgb,
             AccentColor 90%,
-            #000
+            oklch(0% 0 0)
           ) !important;
         }
         @media -moz-pref("gwt.ac") {
           background-color: light-dark(
             var(--bg0),
-            color-mix(in srgb, var(--bg0) 90%, #000)
+            color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
           ) !important;
           &:hover {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, #fff),
-              color-mix(in srgb, var(--bg0) 80%, #fff)
+              color-mix(in srgb, var(--bg0) 90%, oklch(100% 0 0)),
+              color-mix(in srgb, var(--bg0) 80%, oklch(100% 0 0))
             ) !important;
           }
           &:hover:active {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, #000),
-              color-mix(in srgb, var(--bg0) 80%, #000)
+              color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)),
+              color-mix(in srgb, var(--bg0) 80%, oklch(0% 0 0))
             ) !important;
           }
         }
@@ -286,8 +286,8 @@
     input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
       appearance: none !important;
       background-color: light-dark(
-        rgba(70, 70, 70, 0.12),
-        rgba(170, 170, 170, 0.15)
+        oklch(39.4% 0 0 / 0.12),
+        oklch(73.8% 0 0 / 0.15)
       ) !important;
       border-radius: 50% !important;
       border: none !important;
@@ -298,37 +298,37 @@
         background-repeat: no-repeat;
         background-position: center;
         -moz-context-properties: fill;
-        fill: #fff;
+        fill: oklch(100% 0 0);
         border: none !important;
         &:hover {
           background-color: color-mix(
             in srgb,
             AccentColor 90%,
-            #fff
+            oklch(100% 0 0)
           ) !important;
         }
         &:hover:active {
           background-color: color-mix(
             in srgb,
             AccentColor 90%,
-            #000
+            oklch(0% 0 0)
           ) !important;
         }
         @media -moz-pref("gwt.ac") {
           background-color: light-dark(
             var(--bg0),
-            color-mix(in srgb, var(--bg0) 90%, #000)
+            color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
           ) !important;
           &:hover {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, #fff),
-              color-mix(in srgb, var(--bg0) 80%, #fff)
+              color-mix(in srgb, var(--bg0) 90%, oklch(100% 0 0)),
+              color-mix(in srgb, var(--bg0) 80%, oklch(100% 0 0))
             ) !important;
           }
           &:hover:active {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, #000),
-              color-mix(in srgb, var(--bg0) 80%, #000)
+              color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)),
+              color-mix(in srgb, var(--bg0) 80%, oklch(0% 0 0))
             ) !important;
           }
         }
@@ -338,8 +338,8 @@
     .checkbox-check {
       appearance: none !important;
       background-color: light-dark(
-        rgba(70, 70, 70, 0.12),
-        rgba(170, 170, 170, 0.15)
+        oklch(39.4% 0 0 / 0.12),
+        oklch(73.8% 0 0 / 0.15)
       ) !important;
       border-radius: 4px !important;
       border: none !important;
@@ -350,38 +350,38 @@
         background-repeat: no-repeat;
         background-position: center;
         -moz-context-properties: fill, stroke;
-        fill: #fff;
-        stroke: #fff;
+        fill: oklch(100% 0 0);
+        stroke: oklch(100% 0 0);
         border: none !important;
         &:hover {
           background-color: color-mix(
             in srgb,
             AccentColor 90%,
-            #fff
+            oklch(100% 0 0)
           ) !important;
         }
         &:hover:active {
           background-color: color-mix(
             in srgb,
             AccentColor 90%,
-            #000
+            oklch(0% 0 0)
           ) !important;
         }
         @media -moz-pref("gwt.ac") {
           background-color: light-dark(
             var(--bg0),
-            color-mix(in srgb, var(--bg0) 90%, #000)
+            color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
           ) !important;
           &:hover {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, #fff),
-              color-mix(in srgb, var(--bg0) 80%, #fff)
+              color-mix(in srgb, var(--bg0) 90%, oklch(100% 0 0)),
+              color-mix(in srgb, var(--bg0) 80%, oklch(100% 0 0))
             ) !important;
           }
           &:hover:active {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, #000),
-              color-mix(in srgb, var(--bg0) 80%, #000)
+              color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)),
+              color-mix(in srgb, var(--bg0) 80%, oklch(0% 0 0))
             ) !important;
           }
         }
@@ -391,8 +391,8 @@
     .radio-check {
       appearance: none !important;
       background-color: light-dark(
-        rgba(70, 70, 70, 0.12),
-        rgba(170, 170, 170, 0.15)
+        oklch(39.4% 0 0 / 0.12),
+        oklch(73.8% 0 0 / 0.15)
       ) !important;
       border-radius: 50% !important;
       border: none !important;
@@ -403,37 +403,37 @@
         background-repeat: no-repeat;
         background-position: center;
         -moz-context-properties: fill;
-        fill: #fff;
+        fill: oklch(100% 0 0);
         border: none !important;
         &:hover {
           background-color: color-mix(
             in srgb,
             AccentColor 90%,
-            #fff
+            oklch(100% 0 0)
           ) !important;
         }
         &:hover:active {
           background-color: color-mix(
             in srgb,
             AccentColor 90%,
-            #000
+            oklch(0% 0 0)
           ) !important;
         }
         @media -moz-pref("gwt.ac") {
           background-color: light-dark(
             var(--bg0),
-            color-mix(in srgb, var(--bg0) 90%, #000)
+            color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
           ) !important;
           &:hover {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, #fff),
-              color-mix(in srgb, var(--bg0) 80%, #fff)
+              color-mix(in srgb, var(--bg0) 90%, oklch(100% 0 0)),
+              color-mix(in srgb, var(--bg0) 80%, oklch(100% 0 0))
             ) !important;
           }
           &:hover:active {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, #000),
-              color-mix(in srgb, var(--bg0) 80%, #000)
+              color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)),
+              color-mix(in srgb, var(--bg0) 80%, oklch(0% 0 0))
             ) !important;
           }
         }
@@ -452,29 +452,29 @@
   @-moz-document url-prefix("about:") {
     :root {
       --link-color: AccentColor !important;
-      --link-color-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
-      --link-color-active: color-mix(in srgb, AccentColor 90%, #000) !important;
+      --link-color-hover: color-mix(in srgb, AccentColor 90%, oklch(100% 0 0)) !important;
+      --link-color-active: color-mix(in srgb, AccentColor 90%, oklch(0% 0 0)) !important;
       --link-color-visited: AccentColor !important;
       --border-color-deemphasized: light-dark(
-        rgba(50, 50, 50, 0.15),
-        rgba(225, 225, 225, 0.15)
+        oklch(31.7% 0 0 / 0.15),
+        oklch(91% 0 0 / 0.15)
       ) !important;
       @media -moz-pref("gwt.ac") {
         --link-color: light-dark(
           var(--bg0),
-          color-mix(in srgb, var(--bg0) 90%, #000)
+          color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
         ) !important;
         --link-color-hover: light-dark(
-          color-mix(in srgb, var(--bg0) 90%, #fff),
-          color-mix(in srgb, var(--bg0) 80%, #fff)
+          color-mix(in srgb, var(--bg0) 90%, oklch(100% 0 0)),
+          color-mix(in srgb, var(--bg0) 80%, oklch(100% 0 0))
         ) !important;
         --link-color-active: light-dark(
-          color-mix(in srgb, var(--bg0) 90%, #000),
-          color-mix(in srgb, var(--bg0) 80%, #000)
+          color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)),
+          color-mix(in srgb, var(--bg0) 80%, oklch(0% 0 0))
         ) !important;
         --link-color-visited: light-dark(
           var(--bg0),
-          color-mix(in srgb, var(--bg0) 90%, #000)
+          color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
         ) !important;
       }
     }
@@ -482,7 +482,7 @@
 
   @-moz-document url-prefix("about:buildconfig"), url-prefix("about:cache"), url-prefix("about:support") {
     th {
-      color: #fff !important;
+      color: oklch(100% 0 0) !important;
       border: none !important;
     }
     td {
@@ -506,7 +506,7 @@
         -moz-menuhover 80%,
         transparent
       );
-      --panel-item-color: #fff;
+      --panel-item-color: oklch(100% 0 0);
       border: none !important;
       border-radius: 12px !important;
       box-shadow: var(--bs1) !important;
@@ -522,7 +522,7 @@
       }
       @media (prefers-color-scheme: dark) {
         box-shadow: var(--bs2) !important;
-        outline: 1px solid rgba(235, 235, 235, 0.2) !important;
+        outline: 1px solid oklch(94% 0 0 / 0.2) !important;
         outline-offset: -1.5px !important;
       }
     }
@@ -542,7 +542,7 @@
           -moz-menuhover 80%,
           transparent
         ) !important;
-        color: #fff !important;
+        color: oklch(100% 0 0) !important;
         @media -moz-pref("gwt.ac") {
           background-color: color-mix(
             in srgb,
@@ -569,8 +569,8 @@
 
     .card-container {
       background: light-dark(
-        rgba(85, 85, 85, 0.1),
-        rgba(190, 190, 190, 0.1)
+        oklch(45% 0 0 / 0.1),
+        oklch(80.2% 0 0 / 0.1)
       ) !important;
       box-shadow: none !important;
     }
@@ -588,7 +588,7 @@
           -moz-menuhover 80%,
           transparent
         ) !important;
-        color: #fff !important;
+        color: oklch(100% 0 0) !important;
         @media -moz-pref("gwt.ac") {
           background-color: color-mix(
             in srgb,
@@ -631,7 +631,7 @@
       --box-group-border: none !important;
       --promo-background-color: var(--bg1) !important;
       @media not -moz-pref("gwt.atbc") {
-        --background-color-canvas: light-dark(#fff, #202121) !important;
+        --background-color-canvas: light-dark(oklch(100% 0 0), oklch(24.7% 0 197)) !important;
       }
     }
     #backup-toggle-scheduled-button,
@@ -729,32 +729,32 @@
       background-attachment: fixed;
       background-image: repeating-linear-gradient(
         -45deg,
-        #68249a 0 250px,
-        #202020 0 500px
+        oklch(42.6% 0.18 306) 0 250px,
+        oklch(24.4% 0 0) 0 500px
       ) !important;
     }
     .container {
       margin-top: -40px !important;
     }
     .search-handoff-button {
-      background-color: rgba(25, 25, 25, 0.55) !important;
+      background-color: oklch(21.3% 0 0 / 0.55) !important;
       border-radius: 12px !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 2px 10px oklch(0% 0 0 / 0.1) !important;
       backdrop-filter: blur(15px) !important;
       outline: none !important;
       border: none !important;
-      fill: rgba(255, 255, 255, 0.7) !important;
+      fill: oklch(100% 0 0 / 0.7) !important;
     }
     .search-handoff-button.disabled {
       opacity: 1 !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-      fill: rgba(255, 255, 255, 0.6) !important;
+      box-shadow: 0 2px 10px oklch(0% 0 0 / 0.1) !important;
+      fill: oklch(100% 0 0 / 0.6) !important;
     }
     .fake-textbox {
-      color: #fff !important;
+      color: oklch(100% 0 0) !important;
     }
     .search-handoff-button.disabled .fake-textbox {
-      color: #999 !important;
+      color: oklch(68.3% 0 0) !important;
     }
     .logo {
       background: url("chrome://browser/skin/privateBrowsing.svg") no-repeat
@@ -763,10 +763,10 @@
       height: 76px !important;
       width: 76px !important;
       -moz-context-properties: fill;
-      fill: #b9b9b9;
+      fill: oklch(78.6% 0 0);
     }
     .wordmark {
-      fill: #b9b9b9 !important;
+      fill: oklch(78.6% 0 0) !important;
     }
     .info,
     .info-border,
@@ -784,7 +784,7 @@
         repeating-linear-gradient(
           -45deg,
           var(--newtab-wallpaper-color, "") 0 250px,
-          #fff 0 500px
+          oklch(100% 0 0) 0 500px
         ) !important;
       @media (prefers-color-scheme: dark) {
         background-image:
@@ -792,7 +792,7 @@
           repeating-linear-gradient(
             -45deg,
             var(--newtab-wallpaper-color, "") 0 250px,
-            #202121 0 500px
+            oklch(24.7% 0 197) 0 500px
           ) !important;
       }
     }
@@ -833,7 +833,7 @@
           -moz-menuhover 80%,
           transparent
         ) !important;
-        color: #fff !important;
+        color: oklch(100% 0 0) !important;
         @media -moz-pref("gwt.ac") {
           background: color-mix(
             in srgb,
@@ -846,14 +846,14 @@
 
     .context-menu > ul > li.separator {
       border-bottom: 1px solid
-        light-dark(rgba(50, 50, 50, 0.1), rgba(225, 225, 225, 0.1)) !important;
+        light-dark(oklch(31.7% 0 0 / 0.1), oklch(91% 0 0 / 0.1)) !important;
     }
 
     .topsite-form .form-wrapper input[type="text"] {
       border: none !important;
       background: light-dark(
-        rgba(70, 70, 70, 0.1),
-        rgba(170, 170, 170, 0.2)
+        oklch(39.4% 0 0 / 0.1),
+        oklch(73.8% 0 0 / 0.2)
       ) !important;
       outline-style: solid !important;
       outline-color: transparent !important;
@@ -870,7 +870,7 @@
     .divider,
     .edit-topsites-wrapper .actions {
       border-top: 1px solid
-        light-dark(rgba(50, 50, 50, 0.1), rgba(225, 225, 225, 0.1)) !important;
+        light-dark(oklch(31.7% 0 0 / 0.1), oklch(91% 0 0 / 0.1)) !important;
     }
 
     .outer-wrapper.only-search {
@@ -880,19 +880,19 @@
 
     .search-inner-wrapper {
       background-color: light-dark(
-        rgba(255, 255, 255, 0.8),
-        rgba(15, 15, 15, 0.7)
+        oklch(100% 0 0 / 0.8),
+        oklch(16.8% 0 0 / 0.7)
       ) !important;
       border-radius: 50px !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 2px 10px oklch(0% 0 0 / 0.1) !important;
       transition: background 0.5s !important;
       z-index: 1;
     }
 
     .search-inner-wrapper:active {
       background-color: light-dark(
-        rgba(255, 255, 255, 0.6),
-        rgba(15, 15, 15, 0.8)
+        oklch(100% 0 0 / 0.6),
+        oklch(16.8% 0 0 / 0.8)
       ) !important;
       transition: background 0.5s !important;
     }
@@ -927,15 +927,15 @@
 
     .contentSearchSuggestionTable .contentSearchSuggestionRow.selected {
       background: light-dark(
-        rgba(70, 70, 70, 0.1),
-        rgba(170, 170, 170, 0.2)
+        oklch(39.4% 0 0 / 0.1),
+        oklch(73.8% 0 0 / 0.2)
       ) !important;
     }
 
     .contentSearchSuggestionTable .contentSearchSuggestionRow.selected:active {
       background: light-dark(
-        rgba(70, 70, 70, 0.15),
-        rgba(170, 170, 170, 0.3)
+        oklch(39.4% 0 0 / 0.15),
+        oklch(73.8% 0 0 / 0.3)
       ) !important;
     }
 
@@ -954,8 +954,8 @@
 
     .search-button:hover {
       background-color: light-dark(
-        rgba(70, 70, 70, 0.15),
-        rgba(170, 170, 170, 0.2)
+        oklch(39.4% 0 0 / 0.15),
+        oklch(73.8% 0 0 / 0.2)
       ) !important;
       transition: background 0.5s !important;
     }
@@ -964,8 +964,8 @@
       border: none !important;
       box-shadow: none !important;
       background-color: light-dark(
-        rgba(70, 70, 70, 0.1),
-        rgba(170, 170, 170, 0.1)
+        oklch(39.4% 0 0 / 0.1),
+        oklch(73.8% 0 0 / 0.1)
       ) !important;
       transition: background 0.5s !important;
     }
@@ -981,23 +981,23 @@
 
     .tile,
     .context-menu-button.icon {
-      background-color: rgba(255, 255, 255, 0.8) !important;
+      background-color: oklch(100% 0 0 / 0.8) !important;
     }
 
     .context-menu-button.icon:active {
-      background-color: rgba(255, 255, 255, 0.6) !important;
+      background-color: oklch(100% 0 0 / 0.6) !important;
     }
 
     .context-menu-button {
-      fill: #000 !important;
+      fill: oklch(0% 0 0) !important;
     }
 
     .lightWallpaper .top-site-outer .title {
-      color: #000 !important;
+      color: oklch(0% 0 0) !important;
     }
 
     .darkWallpaper .top-site-outer .title {
-      color: #fff !important;
+      color: oklch(100% 0 0) !important;
     }
 
     @media not (prefers-color-scheme: dark) {
@@ -1015,7 +1015,7 @@
         }
 
         .top-site-outer .title {
-          color: #000 !important;
+          color: oklch(0% 0 0) !important;
         }
       }
     }
@@ -1024,15 +1024,15 @@
       border-radius: 20px !important;
       width: 72px !important;
       height: 72px !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 2px 10px oklch(0% 0 0 / 0.1) !important;
       border: none !important;
       transition: background 0.5s !important;
     }
 
     .tile:active {
       background-color: light-dark(
-        rgba(255, 255, 255, 0.6),
-        rgba(15, 15, 15, 0.8)
+        oklch(100% 0 0 / 0.6),
+        oklch(16.8% 0 0 / 0.8)
       ) !important;
       transition: background 0.5s !important;
     }
@@ -1057,7 +1057,7 @@
 
     .context-menu-button.icon {
       border-radius: 50px !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 2px 10px oklch(0% 0 0 / 0.1) !important;
     }
 
     [data-l10n-id="newtab-custom-recent-toggle"],
@@ -1084,7 +1084,7 @@
       @media -moz-pref("gwt.ac") {
         outline-color: light-dark(
           var(--bg0),
-          color-mix(in srgb, var(--bg0) 90%, #000)
+          color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
         ) !important;
       }
     }
@@ -1154,13 +1154,13 @@
         width: 32px !important;
         height: 16px !important;
         background: light-dark(
-          rgba(0, 0, 0, 0.08),
-          rgba(255, 255, 255, 0.08)
+          oklch(0% 0 0 / 0.08),
+          oklch(100% 0 0 / 0.08)
         ) !important;
         border-radius: 12px !important;
         position: relative !important;
         outline: 1px solid
-          light-dark(rgba(0, 0, 0, 0.18), rgba(255, 255, 255, 0.18)) !important;
+          light-dark(oklch(0% 0 0 / 0.18), oklch(100% 0 0 / 0.18)) !important;
         outline-offset: -1px !important;
         cursor: auto !important;
         order: -1;
@@ -1172,8 +1172,8 @@
           width: 12px;
           height: 12px;
           background: light-dark(
-            rgba(0, 0, 0, 0.18),
-            rgba(255, 255, 255, 0.18)
+            oklch(0% 0 0 / 0.18),
+            oklch(100% 0 0 / 0.18)
           );
           border-radius: 50%;
         }
@@ -1268,8 +1268,8 @@
     .location-input-wrapper input {
       border: none !important;
       background-color: light-dark(
-        rgba(70, 70, 70, 0.1),
-        rgba(170, 170, 170, 0.2)
+        oklch(39.4% 0 0 / 0.1),
+        oklch(73.8% 0 0 / 0.2)
       ) !important;
     }
 
@@ -1279,7 +1279,7 @@
       .customize-menu,
       .context-menu {
         box-shadow: var(--bs2) !important;
-        outline: 1px solid rgba(235, 235, 235, 0.2) !important;
+        outline: 1px solid oklch(94% 0 0 / 0.2) !important;
         outline-offset: -1.5px !important;
       }
     }
@@ -1302,7 +1302,7 @@
       }
       @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper") {
         background-color: var(--bg4) !important;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 2px 10px oklch(0% 0 0 / 0.1) !important;
         &:hover {
           background-color: var(--bg5) !important;
         }
@@ -1318,57 +1318,57 @@
       }
 
       .lightWallpaper .tile {
-        background-color: rgba(15, 15, 15, 0.7) !important;
+        background-color: oklch(16.8% 0 0 / 0.7) !important;
       }
 
       .lightWallpaper .tile:hover {
-        background-color: rgba(15, 15, 15, 0.75) !important;
+        background-color: oklch(16.8% 0 0 / 0.75) !important;
       }
 
       .lightWallpaper .tile:active {
-        background-color: rgba(15, 15, 15, 0.6) !important;
+        background-color: oklch(16.8% 0 0 / 0.6) !important;
       }
 
       .lightWallpaper .context-menu-button.icon {
-        background-color: rgba(15, 15, 15, 0.7) !important;
+        background-color: oklch(16.8% 0 0 / 0.7) !important;
       }
 
       .lightWallpaper .context-menu-button.icon:hover {
-        background-color: rgba(15, 15, 15, 0.75) !important;
+        background-color: oklch(16.8% 0 0 / 0.75) !important;
       }
 
       .lightWallpaper .context-menu-button.icon:active {
-        background-color: rgba(15, 15, 15, 0.6) !important;
+        background-color: oklch(16.8% 0 0 / 0.6) !important;
       }
 
       .context-menu-button {
-        fill: #fff !important;
+        fill: oklch(100% 0 0) !important;
       }
     }
 
     @media (prefers-color-scheme: light) {
       .darkWallpaper .tile {
-        background-color: rgba(255, 255, 255, 0.7) !important;
+        background-color: oklch(100% 0 0 / 0.7) !important;
       }
 
       .darkWallpaper .tile:hover {
-        background-color: rgba(255, 255, 255, 0.75) !important;
+        background-color: oklch(100% 0 0 / 0.75) !important;
       }
 
       .darkWallpaper .tile:active {
-        background-color: rgba(255, 255, 255, 0.6) !important;
+        background-color: oklch(100% 0 0 / 0.6) !important;
       }
 
       .darkWallpaper .context-menu-button.icon {
-        background-color: rgba(255, 255, 255, 0.7) !important;
+        background-color: oklch(100% 0 0 / 0.7) !important;
       }
 
       .darkWallpaper .context-menu-button.icon:hover {
-        background-color: rgba(255, 255, 255, 0.75) !important;
+        background-color: oklch(100% 0 0 / 0.75) !important;
       }
 
       .darkWallpaper .context-menu-button.icon:active {
-        background-color: rgba(255, 255, 255, 0.6) !important;
+        background-color: oklch(100% 0 0 / 0.6) !important;
       }
     }
   }

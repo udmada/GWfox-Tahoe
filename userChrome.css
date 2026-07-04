@@ -95,12 +95,7 @@
       oklch(81.7% 0 0 / 0.25)
     ) !important;
     --urlbarView-result-button-hover-color: oklch(100% 0 0 / 0.8) !important;
-    --urlbarView-result-button-hover-background-color: rgba(
-      195,
-      195,
-      195,
-      0.2
-    ) !important;
+    --urlbarView-result-button-hover-background-color: oklch(81.7% 0 0 / 0.2) !important;
     --toolbarbutton-icon-fill-attention: AccentColor !important;
     --arrowpanel-background: light-dark(
       oklch(100% 0 0),
