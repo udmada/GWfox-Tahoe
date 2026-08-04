@@ -10,7 +10,7 @@
 @media (-moz-mac-tahoe-theme) {
   :root {
     --bg0: oklch(62.4% 0.21 289);
-    --br0: 12px;
+    --br0: 19px;
     --bg1: color-mix(in srgb, -moz-menuhover 80%, transparent);
     --bg2: light-dark(oklch(100% 0 0), oklch(39% 0 0));
     --bg3: light-dark(oklch(31.7% 0 0 / 0.1), oklch(91% 0 0 / 0.1));
