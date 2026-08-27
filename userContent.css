@@ -104,7 +104,7 @@
       --newtab-background-color: light-dark(oklch(100% 0 0), oklch(23.8% 0 197)) !important;
     }
     :-moz-window-inactive {
-      --bg7: color-mix(in srgb, oklch(56.9% 0 0), transparent 75%);
+      --bg7: color-mix(in oklch, oklch(56.9% 0 0), transparent 75%);
     }
   }
 
