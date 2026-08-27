@@ -18,7 +18,11 @@
     --bg4: light-dark(oklch(100% 0 0 / 0.25), oklch(100% 0 0 / 0.08));
     --bg5: linear-gradient(
       to bottom,
-      color-mix(in srgb, oklch(100% 0 0 / 0.2), oklch(100% 0 0 / 0.3) 20%),
+      color-mix(
+        in srgb,
+        oklch(100% 0 0 / 0.2),
+        oklch(100% 0 0 / 0.3) 20%
+      ),
       oklch(89.4% 0 0 / 0.2) 20%,
       oklch(92.5% 0 0 / 0.2) 40%,
       color-mix(in srgb, oklch(100% 0 0 / 0.2), oklch(100% 0 0 / 0.3) 45%)
@@ -92,9 +96,7 @@
       oklch(81.7% 0 0 / 0.25)
     ) !important;
     --urlbarView-result-button-hover-color: oklch(100% 0 0 / 0.8) !important;
-    --urlbarView-result-button-hover-background-color: oklch(
-      81.7% 0 0 / 0.2
-    ) !important;
+    --urlbarView-result-button-hover-background-color: oklch(81.7% 0 0 / 0.2) !important;
     --toolbarbutton-icon-fill-attention: AccentColor !important;
     --in-content-box-background: light-dark(
       oklch(68.9% 0 0 / 0.2),
@@ -115,10 +117,7 @@
     --urlbarView-action-button-background-color: var(--bg2) !important;
     --urlbarView-hover-background: var(--bg1) !important;
     --urlbarView-highlight-background: var(--bg1) !important;
-    --urlbarView-highlight-color: light-dark(
-      oklch(0% 0 0),
-      oklch(100% 0 0)
-    ) !important;
+    --urlbarView-highlight-color: light-dark(oklch(0% 0 0), oklch(100% 0 0)) !important;
     --input-border-color: transparent !important;
     --input-text-border: transparent !important;
     --input-text-background-color: light-dark(
@@ -149,10 +148,7 @@
     --border-radius-xsmall: 12px !important;
     --border-radius-small: 12px !important;
     --button-border-radius: 50px !important;
-    --in-content-background-color: light-dark(
-      oklch(100% 0 0),
-      oklch(23.8% 0 197)
-    ) !important;
+    --in-content-background-color: light-dark(oklch(100% 0 0), oklch(23.8% 0 197)) !important;
     --panel-separator-color: var(--bg3) !important;
     @media -moz-pref("gwt.ac") {
       --bg1: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
@@ -190,22 +186,24 @@
       ) !important;
     }
     @media not -moz-pref("gwt.atbc") {
-      --toolbar-background-color: light-dark(
-        oklch(100% 0 0),
-        oklch(23.8% 0 197)
-      ) !important;
-      --toolbox-background-color: light-dark(
-        oklch(100% 0 0),
-        oklch(23.8% 0 197)
-      ) !important;
+      --toolbar-background-color: light-dark(oklch(100% 0 0), oklch(23.8% 0 197)) !important;
+      --toolbox-background-color: light-dark(oklch(100% 0 0), oklch(23.8% 0 197)) !important;
     }
     @media (prefers-color-scheme: dark) {
       --bg5: linear-gradient(
         to bottom,
-        color-mix(in srgb, oklch(97% 0 0 / 0.15), oklch(94% 0 0 / 0.25) 20%),
+        color-mix(
+          in srgb,
+          oklch(97% 0 0 / 0.15),
+          oklch(94% 0 0 / 0.25) 20%
+        ),
         oklch(92.5% 0 0 / 0.15) 20%,
         oklch(92.5% 0 0 / 0.15) 40%,
-        color-mix(in srgb, oklch(97% 0 0 / 0.15), oklch(94% 0 0 / 0.25) 45%)
+        color-mix(
+          in srgb,
+          oklch(97% 0 0 / 0.15),
+          oklch(94% 0 0 / 0.25) 45%
+        )
       );
       --bs3:
         -0.5px 0 0 oklch(0% 0 0 / 0.5), 0.5px 0 0 oklch(0% 0 0 / 0.5),
@@ -485,7 +483,7 @@
           .toolbarbutton-1:not(
             #new-tab-button,
             #tabs-newtab-button,
-            #downloads-button
+            #alltabs-button
           ) {
           :root:not([customizing]) & {
             display: none;
@@ -746,12 +744,12 @@
       #unified-extensions-button,
       #new-tab-button,
       #tabs-newtab-button,
-      #downloads-button
+      #alltabs-button
     ) {
     background: var(--bg5) !important;
     box-shadow: var(--bs3) !important;
     border-radius: 50%;
-    margin: 8px 2px 8px 2px !important;
+    margin: 8px !important;
     padding: 0 !important;
     width: 36px !important;
     height: 36px !important;
@@ -777,12 +775,12 @@
       #unified-extensions-button,
       #new-tab-button,
       #tabs-newtab-button,
-      #downloads-button
+      #alltabs-button
     ) {
     background: var(--bg5) !important;
     box-shadow: var(--bs3) !important;
     border-radius: 50%;
-    margin: 8px 2px 8px 2px !important;
+    margin: 8px !important;
     padding: 0 !important;
     width: 36px !important;
     height: 36px !important;
@@ -929,8 +927,8 @@
     @media -moz-pref("gwt.oneliner") {
       #new-tab-button,
       #tabs-newtab-button,
-      #nav-bar #downloads-button,
-      #TabsToolbar #downloads-button {
+      #nav-bar #alltabs-button,
+      #TabsToolbar #alltabs-button {
         background: var(--bg5) !important;
         box-shadow: var(--bs3) !important;
         border-radius: 50%;
@@ -1064,12 +1062,12 @@
   }
 
   @media -moz-pref("sidebar.verticalTabs") {
-    #nav-bar #downloads-button,
-    #TabsToolbar #downloads-button {
+    #nav-bar #alltabs-button,
+    #TabsToolbar #alltabs-button {
       background: var(--bg5) !important;
       box-shadow: var(--bs3) !important;
       border-radius: 50%;
-      margin: 8px 2px 8px 2px !important;
+      margin: 8px !important;
       padding: 0 !important;
       width: 36px !important;
       height: 36px !important;
@@ -1135,7 +1133,7 @@
       }
     }
 
-    :root:not([customizing]) #TabsToolbar #downloads-button {
+    :root:not([customizing]) #TabsToolbar #alltabs-button {
       display: none;
     }
 
@@ -1143,11 +1141,11 @@
       margin-inline-start: 36px !important;
     }
 
-    #nav-bar #downloads-button {
+    #nav-bar #alltabs-button {
       background: var(--bg5) !important;
       box-shadow: var(--bs3) !important;
       border-radius: 50%;
-      margin: 8px 2px 8px 2px !important;
+      margin: 8px !important;
       padding: 0 !important;
       width: 36px !important;
       height: 36px !important;
@@ -1282,11 +1280,7 @@
         min-width: 150% !important;
       }
       .urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
-        mask-image: linear-gradient(
-          to left,
-          transparent,
-          oklch(100% 0 0) 15ch
-        ) !important;
+        mask-image: linear-gradient(to left, transparent, oklch(100% 0 0) 15ch) !important;
         #urlbar:is(:hover, [focused], [open]) & {
           mask-image: none !important;
         }
@@ -2910,7 +2904,7 @@
             #unified-extensions-button,
             #tabs-newtab-button,
             #vertical-tabs-newtab-button,
-            #downloads-button,
+            #alltabs-button,
             #sidebar-button
           ) {
             visibility: collapse;
@@ -2922,7 +2916,7 @@
           visibility: collapse;
         }
       }
-      #downloads-button,
+      #alltabs-button,
       #new-tab-button,
       #tabs-newtab-button {
         visibility: visible;
@@ -3642,7 +3636,7 @@
     list-style-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='context-fill' fill-rule='evenodd' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 5.5,5.63 A 0.5,0.46 0 0 0 5,5.17 H 3 A 0.5,0.46 0 0 0 3,6.09 H 5 A 0.5,0.46 0 0 0 5.5,5.63 Z m 0,2.28 A 0.5,0.46 0 0 0 5,7.45 H 3 A 0.5,0.46 0 0 0 3,8.37 H 5 A 0.5,0.46 0 0 0 5.5,7.91 Z m 0,2.28 A 0.5,0.46 0 0 0 5,9.74 H 3 A 0.5,0.46 0 0 0 3,10.65 H 5 A 0.5,0.46 0 0 0 5.5,10.19 Z M 16,12.4 V 3.65 A 2,2.12 0 0 0 14,1.52 H 2 A 2,2.12 0 0 0 0,3.65 V 12.4 A 2,2.12 0 0 0 2,14.53 h 12 a 2,2.12 0 0 0 2,-2.12 z M 1.25,12.56 V 3.49 l 0.6,-0.64 h 4.9 V 13.2 H 1.85 Z M 8,13.2 h 6.15 l 0.6,-0.64 V 3.49 L 14.15,2.85 H 8 Z'/%3E%3C/svg%3E") !important;
   }
 
-  #downloads-button {
+  #alltabs-button {
     list-style-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='context-fill' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 2.75 0.5 C 1.51 0.5 0.5 1.43 0.5 2.59 v 7.75 c 0 1.16 1.01 2.09 2.25 2.09 H 3.68 V 13.4 c 0 1.17 1.01 2.1 2.25 2.1 H 13.25 c 1.24 0 2.25 -0.93 2.25 -2.09 V 5.66 c 0 -1.16 -1.01 -2.09 -2.25 -2.09 h -0.93 v -0.97 c 0 -1.16 -1.01 -2.09 -2.25 -2.09 z m 0 1.28 h 7.32 c 0.5 0 0.88 0.37 0.88 0.82 v 0.97 l -5.03 -0.01 c -1.24 0 -2.25 0.93 -2.25 2.09 V 11.15 H 2.75 c -0.5 0 -0.88 -0.37 -0.88 -0.82 V 2.59 C 1.87 2.15 2.26 1.77 2.75 1.77 Z M 5.93 4.85 H 13.25 c 0.5 0 0.88 0.37 0.88 0.82 v 7.75 c 0 0.44 -0.39 0.82 -0.88 0.82 H 5.93 c -0.5 0 -0.88 -0.37 -0.88 -0.82 v -7.76 c 0 -0.44 0.39 -0.82 0.88 -0.82 z'/%3E%3C/svg%3E") !important;
   }
 
@@ -4130,7 +4124,7 @@
                       #downloads-button,
                       #PanelUI-menu-button,
                       #nav-bar-overflow-button,
-                      #downloads-button
+                      #alltabs-button
                     )[open],
                   .searchmode-switcher[open],
                   #placesContext:hover,
