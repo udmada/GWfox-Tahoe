@@ -6,102 +6,234 @@
  * * * * * * * * * * * * * * * * * * * */
 @import url("customButtons.css");
 @import url("cleanerExtensionsMenu.css");
+
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 @media (-moz-mac-tahoe-theme) {
-:root {
-  --bg0: #8867fc;
-  --bg1: -moz-menuhover;
-  --bg2: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15));
-  --bg2-hover: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2));
-  --bg2-active: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3));
-  --bg3: light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1));
-  --bg4: light-dark(rgba(255, 255, 255, .25), rgba(255, 255, 255, .08));
-  --bg5: linear-gradient(to bottom, color-mix(in srgb, rgba(255, 255, 255, .2), rgba(255, 255, 255, .3) 20%), rgba(220, 220, 220, .2) 20%, rgba(230, 230, 230, .2) 40%, color-mix(in srgb, rgba(255, 255, 255, .2), rgba(255, 255, 255, .3) 45%));
-  --bg6: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff));
-  --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
-  --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
-  --bs3: -.5px 0 0 rgba(0, 0, 0, .22), .5px 0 0 rgba(0, 0, 0, .22), 0 -.5px 0 rgba(0, 0, 0, .09), 0 .5px 0 rgba(0, 0, 0, .09), inset 0 1.5px 1.5px -1.5px rgba(255, 255, 255, .75), inset 0 -1.5px 1.5px -1.5px rgba(255, 255, 255, .75), 0 6px 16px -5px rgba(0, 0, 0, .015);
-  --bs4: 0 0 20px rgba(75, 75, 75, .1), inset 0 0 1px 0 rgba(255, 255, 255, .2);
-  --bs5: 0 0 2px rgba(15, 15, 15, .1), inset 1px 1.5px 1px -1px rgba(255, 255, 255, .18), inset -.5px -.5px 1px 0 rgba(255, 255, 255, .2);
-  --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
-  --button-background-color: var(--bg2) !important;
-  --button-background-color-hover: var(--bg2-hover) !important;
-  --button-background-color-active: var(--bg2-active) !important;
-  --in-content-primary-button-text-color: #fff !important;
-  --button-text-color-primary: #fff !important;
-  --button-primary-color: #fff !important;
-  --text-color-accent-primary-selected: #fff !important;
-  --tab-loading-fill: AccentColor !important;
-  --color-accent-primary: AccentColor !important;
-  --color-accent-primary-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
-  --color-accent-primary-active: color-mix(in srgb, AccentColor 90%, #000) !important;
-  --color-accent-primary-selected: light-dark(AccentColor, color-mix(in srgb, AccentColor 90%, #000)) !important;
-  --in-content-button-background: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
-  --in-content-button-background-hover: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
-  --in-content-button-background-active: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15)) !important;
-  --link-color: var(--color-accent-primary) !important;
-  --link-color-hover: var(--color-accent-primary-hover) !important;
-  --link-color-active: var(--color-accent-primary-active) !important;
-  --toolbar-field-focus-background-color: light-dark(rgba(155, 155, 155, .25), rgba(195, 195, 195, .25)) !important;
-  --urlbarView-result-button-hover-color: rgba(255, 255, 255, .8) !important;
-  --urlbarView-result-button-hover-background-color: rgba(195, 195, 195, .2) !important;
-  --toolbarbutton-icon-fill-attention: AccentColor !important;
-  --in-content-box-background: light-dark(rgba(155, 155, 155, .2), rgba(195, 195, 195, .2)) !important;
-  --background-color-box: light-dark(rgba(155, 155, 155, .2), rgba(195, 195, 195, .2)) !important;
-  --in-content-box-border-color: transparent !important;
-  --sidebar-background-color: transparent !important;
-  --sidebar-border-color: transparent !important;
-  --sidebar-box-border: transparent !important;
-  --sidebar-box-background: light-dark(rgba(102, 105, 108, .1), rgba(165, 165, 165, .1)) !important;
-  --urlbarView-action-button-background-color: var(--bg2) !important;
-  --urlbarView-hover-background: var(--bg1) !important;
-  --urlbarView-highlight-background: var(--bg1) !important;
-  --urlbarView-highlight-color: light-dark(#000, #fff) !important;
-  --input-border-color: transparent !important;
-  --input-text-border: transparent !important;
-  --input-text-background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
-  --tabstrip-min-height: unset !important;
-  --tab-icon-overlay-fill: light-dark(rgba(0, 0, 0, .8), rgba(225, 225, 225, .8)) !important;
-  --toolbarbutton-background-color-hover: color-mix(in srgb, currentColor 6%, transparent) !important;
-  --toolbarbutton-background-color-active: color-mix(in srgb, currentColor 10%, transparent) !important;
-  --toolbarbutton-icon-fill: light-dark(rgb(39, 39, 39), rgb(237, 237, 237)) !important;
-  --toolbarbutton-disabled-opacity: .4;
-  --toolbar-background-color: var(--toolbox-background-color) !important;
-  --border-radius-xsmall: 12px !important;
-  --border-radius-small: 12px !important;
-  --button-border-radius: 50px !important;
-  --in-content-background-color: light-dark(#fff, #1e1f1f) !important;
-  --panel-separator-color: var(--bg3) !important;
-@media -moz-pref("gwt.ac") {
-  --bg1: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
-  --bg6: light-dark(color-mix(in srgb, var(--bg0) 20%, #fff), color-mix(in srgb, var(--bg0) 40%, #fff)) !important;
-  --toolbarbutton-icon-fill-attention: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  --tab-loading-fill: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  --color-accent-primary: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  --color-accent-primary-hover: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important;
-  --color-accent-primary-active: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important;
-  --color-accent-primary-selected: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  --focus-outline-color: light-dark(color-mix(in srgb, var(--bg0) 55%, transparent), color-mix(in srgb, var(--bg0) 45%, #555)) !important;
-}
-@media not -moz-pref("gwt.atbc") {
-  --toolbar-background-color: light-dark(#fff, #1e1f1f) !important;
-  --toolbox-background-color: light-dark(#fff, #1e1f1f) !important;
-}
-@media (prefers-color-scheme: dark) {
-  --bg5: linear-gradient(to bottom, color-mix(in srgb, rgba(245, 245, 245, .15), rgba(235, 235, 235, .25) 20%), rgba(230, 230, 230, .15) 20%, rgba(230, 230, 230, .15) 40%, color-mix(in srgb, rgba(245, 245, 245, .15), rgba(235, 235, 235, .25) 45%));
-  --bs3: -.5px 0 0 rgba(0, 0, 0, .5), .5px 0 0 rgba(0, 0, 0, .5), 0 -.5px 0 rgba(0, 0, 0, .09), 0 .5px 0 rgba(0, 0, 0, .09), inset 0 1.5px 1.5px -1.5px rgba(255, 255, 255, .75), inset 0 -1.5px 1.5px -1.5px rgba(255, 255, 255, .75);
-  --bs4: 0 0 20px rgba(20, 21, 21, .1), inset 0 0 1px 0 rgba(255, 255, 255, .2);
-  --bs5: 0 0 2px rgba(20, 21, 21, .1), inset 1px 1.5px 1px -1px rgba(255, 255, 255, .18), inset -.5px -.5px 1px 0 rgba(255, 255, 255, .2);
-}
-&:-moz-window-inactive {
-@media not -moz-pref("gwt.atbc") {
-  --toolbox-background-color-inactive: light-dark(#fff, #1e1f1f) !important;
-}
-  --bg5: light-dark(rgba(120, 120, 120, .1), rgba(220, 220, 220, .15));
-  --bs3: -.5px 0 0 rgba(0, 0, 0, .22), .5px 0 0 rgba(0, 0, 0, .22), 0 -.5px 0 rgba(0, 0, 0, .22), 0 .5px 0 rgba(0, 0, 0, .22);
-  --bs4: none;
-}
-}
+  :root {
+    --bg0: oklch(62.4% 0.21 289);
+    --bg1: -moz-menuhover;
+    --bg2: light-dark(oklch(39.4% 0 0 / 0.12), oklch(73.8% 0 0 / 0.15));
+    --bg2-hover: light-dark(oklch(39.4% 0 0 / 0.1), oklch(73.8% 0 0 / 0.2));
+    --bg2-active: light-dark(oklch(39.4% 0 0 / 0.15), oklch(73.8% 0 0 / 0.3));
+    --bg3: light-dark(oklch(31.7% 0 0 / 0.1), oklch(91% 0 0 / 0.1));
+    --bg4: light-dark(oklch(100% 0 0 / 0.25), oklch(100% 0 0 / 0.08));
+    --bg5: linear-gradient(
+      to bottom,
+      color-mix(in oklch, oklch(100% 0 0 / 0.2), oklch(100% 0 0 / 0.3) 20%),
+      oklch(89.4% 0 0 / 0.2) 20%,
+      oklch(92.5% 0 0 / 0.2) 40%,
+      color-mix(in oklch, oklch(100% 0 0 / 0.2), oklch(100% 0 0 / 0.3) 45%)
+    );
+    --bg6: light-dark(
+      color-mix(in oklch, AccentColor 20%, oklch(100% 0 0)),
+      color-mix(in oklch, AccentColor 40%, oklch(100% 0 0))
+    );
+    --bs1:
+      0 5px 15px oklch(0% 0 0 / 0.2), inset 0 0 0 0.5px oklch(0% 0 0 / 0.34),
+      0 0 0 0.5px oklch(0% 0 0 / 0.12);
+    --bs2:
+      0 5px 15px oklch(0% 0 0 / 0.25), inset 0 0 0 0.5px oklch(0% 0 0 / 0.78),
+      0 0 0 0.5px oklch(0% 0 0 / 0.2);
+    --bs3:
+      -0.5px 0 0 oklch(0% 0 0 / 0.22), 0.5px 0 0 oklch(0% 0 0 / 0.22),
+      0 -0.5px 0 oklch(0% 0 0 / 0.09), 0 0.5px 0 oklch(0% 0 0 / 0.09),
+      inset 0 1.5px 1.5px -1.5px oklch(100% 0 0 / 0.75),
+      inset 0 -1.5px 1.5px -1.5px oklch(100% 0 0 / 0.75),
+      0 6px 16px -5px oklch(0% 0 0 / 0.01);
+    --bs4:
+      0 0 20px oklch(41.3% 0 0 / 0.1), inset 0 0 1px 0 oklch(100% 0 0 / 0.2);
+    --bs5:
+      0 0 2px oklch(16.8% 0 0 / 0.1),
+      inset 1px 1.5px 1px -1px oklch(100% 0 0 / 0.18),
+      inset -0.5px -0.5px 1px 0 oklch(100% 0 0 / 0.2);
+    --focus-outline-color: light-dark(
+      color-mix(in oklch, AccentColor 55%, transparent),
+      color-mix(in oklch, AccentColor 45%, oklch(45% 0 0))
+    ) !important;
+    --button-background-color: var(--bg2) !important;
+    --button-background-color-hover: var(--bg2-hover) !important;
+    --button-background-color-active: var(--bg2-active) !important;
+    --in-content-primary-button-text-color: oklch(100% 0 0) !important;
+    --button-text-color-primary: oklch(100% 0 0) !important;
+    --button-primary-color: oklch(100% 0 0) !important;
+    --text-color-accent-primary-selected: oklch(100% 0 0) !important;
+    --tab-loading-fill: AccentColor !important;
+    --color-accent-primary: AccentColor !important;
+    --color-accent-primary-hover: color-mix(
+      in oklch,
+      AccentColor 90%,
+      oklch(100% 0 0)
+    ) !important;
+    --color-accent-primary-active: color-mix(
+      in oklch,
+      AccentColor 90%,
+      oklch(0% 0 0)
+    ) !important;
+    --color-accent-primary-selected: light-dark(
+      AccentColor,
+      color-mix(in oklch, AccentColor 90%, oklch(0% 0 0))
+    ) !important;
+    --in-content-button-background: light-dark(
+      oklch(39.4% 0 0 / 0.1),
+      oklch(73.8% 0 0 / 0.2)
+    ) !important;
+    --in-content-button-background-hover: light-dark(
+      oklch(39.4% 0 0 / 0.15),
+      oklch(73.8% 0 0 / 0.3)
+    ) !important;
+    --in-content-button-background-active: light-dark(
+      oklch(39.4% 0 0 / 0.12),
+      oklch(73.8% 0 0 / 0.15)
+    ) !important;
+    --link-color: var(--color-accent-primary) !important;
+    --link-color-hover: var(--color-accent-primary-hover) !important;
+    --link-color-active: var(--color-accent-primary-active) !important;
+    --toolbar-field-focus-background-color: light-dark(
+      oklch(68.9% 0 0 / 0.25),
+      oklch(81.7% 0 0 / 0.25)
+    ) !important;
+    --urlbarView-result-button-hover-color: oklch(100% 0 0 / 0.8) !important;
+    --urlbarView-result-button-hover-background-color: oklch(
+      81.7% 0 0 / 0.2
+    ) !important;
+    --toolbarbutton-icon-fill-attention: AccentColor !important;
+    --in-content-box-background: light-dark(
+      oklch(68.9% 0 0 / 0.2),
+      oklch(81.7% 0 0 / 0.2)
+    ) !important;
+    --background-color-box: light-dark(
+      oklch(68.9% 0 0 / 0.2),
+      oklch(81.7% 0 0 / 0.2)
+    ) !important;
+    --in-content-box-border-color: transparent !important;
+    --sidebar-background-color: transparent !important;
+    --sidebar-border-color: transparent !important;
+    --sidebar-box-border: transparent !important;
+    --sidebar-box-background: light-dark(
+      oklch(51.9% 0.01 248 / 0.1),
+      oklch(72.2% 0 0 / 0.1)
+    ) !important;
+    --urlbarView-action-button-background-color: var(--bg2) !important;
+    --urlbarView-hover-background: var(--bg1) !important;
+    --urlbarView-highlight-background: var(--bg1) !important;
+    --urlbarView-highlight-color: light-dark(
+      oklch(0% 0 0),
+      oklch(100% 0 0)
+    ) !important;
+    --input-border-color: transparent !important;
+    --input-text-border: transparent !important;
+    --input-text-background-color: light-dark(
+      oklch(39.4% 0 0 / 0.1),
+      oklch(73.8% 0 0 / 0.2)
+    ) !important;
+    --tabstrip-min-height: unset !important;
+    --tab-icon-overlay-fill: light-dark(
+      oklch(0% 0 0 / 0.8),
+      oklch(91% 0 0 / 0.8)
+    ) !important;
+    --toolbarbutton-background-color-hover: color-mix(
+      in oklch,
+      currentColor 6%,
+      transparent
+    ) !important;
+    --toolbarbutton-background-color-active: color-mix(
+      in oklch,
+      currentColor 10%,
+      transparent
+    ) !important;
+    --toolbarbutton-icon-fill: light-dark(
+      oklch(27.3% 0 0),
+      oklch(94.6% 0 0)
+    ) !important;
+    --toolbarbutton-disabled-opacity: 0.4;
+    --toolbar-background-color: var(--toolbox-background-color) !important;
+    --border-radius-xsmall: 12px !important;
+    --border-radius-small: 12px !important;
+    --button-border-radius: 50px !important;
+    --in-content-background-color: light-dark(
+      oklch(100% 0 0),
+      oklch(23.8% 0 197)
+    ) !important;
+    --panel-separator-color: var(--bg3) !important;
+    @media -moz-pref("gwt.ac") {
+      --bg1: color-mix(in oklch, var(--bg0) 80%, transparent) !important;
+      --bg6: light-dark(
+        color-mix(in oklch, var(--bg0) 20%, oklch(100% 0 0)),
+        color-mix(in oklch, var(--bg0) 40%, oklch(100% 0 0))
+      ) !important;
+      --toolbarbutton-icon-fill-attention: light-dark(
+        var(--bg0),
+        color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0))
+      ) !important;
+      --tab-loading-fill: light-dark(
+        var(--bg0),
+        color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0))
+      ) !important;
+      --color-accent-primary: light-dark(
+        var(--bg0),
+        color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0))
+      ) !important;
+      --color-accent-primary-hover: light-dark(
+        color-mix(in oklch, var(--bg0) 90%, oklch(100% 0 0)),
+        color-mix(in oklch, var(--bg0) 80%, oklch(100% 0 0))
+      ) !important;
+      --color-accent-primary-active: light-dark(
+        color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0)),
+        color-mix(in oklch, var(--bg0) 80%, oklch(0% 0 0))
+      ) !important;
+      --color-accent-primary-selected: light-dark(
+        var(--bg0),
+        color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0))
+      ) !important;
+      --focus-outline-color: light-dark(
+        color-mix(in oklch, var(--bg0) 55%, transparent),
+        color-mix(in oklch, var(--bg0) 45%, oklch(45% 0 0))
+      ) !important;
+    }
+    @media not -moz-pref("gwt.atbc") {
+      --toolbar-background-color: light-dark(
+        oklch(100% 0 0),
+        oklch(23.8% 0 197)
+      ) !important;
+      --toolbox-background-color: light-dark(
+        oklch(100% 0 0),
+        oklch(23.8% 0 197)
+      ) !important;
+    }
+    @media (prefers-color-scheme: dark) {
+      --bg5: linear-gradient(
+        to bottom,
+        color-mix(in oklch, oklch(97% 0 0 / 0.15), oklch(94% 0 0 / 0.25) 20%),
+        oklch(92.5% 0 0 / 0.15) 20%,
+        oklch(92.5% 0 0 / 0.15) 40%,
+        color-mix(in oklch, oklch(97% 0 0 / 0.15), oklch(94% 0 0 / 0.25) 45%)
+      );
+      --bs3:
+        -0.5px 0 0 oklch(0% 0 0 / 0.5), 0.5px 0 0 oklch(0% 0 0 / 0.5),
+        0 -0.5px 0 oklch(0% 0 0 / 0.09), 0 0.5px 0 oklch(0% 0 0 / 0.09),
+        inset 0 1.5px 1.5px -1.5px oklch(100% 0 0 / 0.75),
+        inset 0 -1.5px 1.5px -1.5px oklch(100% 0 0 / 0.75);
+      --bs4:
+        0 0 20px oklch(19.5% 0 197 / 0.1), inset 0 0 1px 0 oklch(100% 0 0 / 0.2);
+      --bs5:
+        0 0 2px oklch(19.5% 0 197 / 0.1),
+        inset 1px 1.5px 1px -1px oklch(100% 0 0 / 0.18),
+        inset -0.5px -0.5px 1px 0 oklch(100% 0 0 / 0.2);
+    }
+    &:-moz-window-inactive {
+      @media not -moz-pref("gwt.atbc") {
+        --toolbox-background-color-inactive: light-dark(
+          oklch(100% 0 0),
+          oklch(23.8% 0 197)
+        ) !important;
+      }
+      --bg5: light-dark(oklch(57.3% 0 0 / 0.1), oklch(89.4% 0 0 / 0.15));
+      --bs3:
+        -0.5px 0 0 oklch(0% 0 0 / 0.22), 0.5px 0 0 oklch(0% 0 0 / 0.22),
+        0 -0.5px 0 oklch(0% 0 0 / 0.22), 0 0.5px 0 oklch(0% 0 0 / 0.22);
+      --bs4: none;
+    }
+  }
 
   :root[macOSNativeFullscreen] {
     .fullscreen-floating-toolbox,
@@ -127,7 +259,7 @@
       margin: 0 !important;
     }
     .urlbar-background {
-      background: color-mix(in srgb, currentColor 15%, transparent) !important;
+      background: color-mix(in oklch, currentColor 15%, transparent) !important;
     }
   }
 
@@ -203,18 +335,13 @@
     border: none !important;
     z-index: unset !important;
   }
-#navigator-toolbox {
-  margin-top: 0 !important;
-  border: none !important;
-  z-index: unset !important;
-}
 
-#browser {
-  --sidebar-launcher-collapsed-width: 1px !important;
-:root[sidebar-expand-on-hover] & {
-  margin-inline-start: -1px !important;
-}
-}
+  #browser {
+    --sidebar-launcher-collapsed-width: 1px !important;
+    :root[sidebar-expand-on-hover] & {
+      margin-inline-start: -1px !important;
+    }
+  }
 
   .browserContainer {
     box-shadow: none !important;
@@ -273,7 +400,7 @@
   }
 
   #PersonalToolbar {
-    color: color-mix(in srgb, currentColor 80%, transparent) !important;
+    color: color-mix(in oklch, currentColor 80%, transparent) !important;
     background-color: var(--toolbox-background-color) !important;
     &:-moz-window-inactive {
       opacity: var(--inactive-titlebar-opacity);
@@ -395,27 +522,18 @@
       #identity-icon-label,
       .titlebar-spacer,
       #nav-bar:not([customizing]) toolbarspring {
-        display: none !important;
+        visibility: collapse;
       }
-@media -moz-pref("gwt.oneliner") {
-@media not -moz-pref("sidebar.verticalTabs") {
-#trust-label, #identity-icon-label, .titlebar-spacer, #nav-bar:not([customizing]) toolbarspring {
-  visibility: collapse;
-}
 
       #navigator-toolbox {
-        display: grid;
-        grid-template-columns: minmax(auto, 0) auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
       }
-#navigator-toolbox {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
 
       #nav-bar {
-        width: fit-content !important;
-        grid-area: 2 / 1 / auto / auto;
+        order: -1;
+        flex: auto;
         z-index: 9 !important;
         :root[customizing]:not([inFullscreen]):has(
             #tabbrowser-tabs:not([expanded])
@@ -424,16 +542,11 @@
           padding-left: 86px !important;
         }
       }
-#nav-bar {
-  order: -1;
-  flex: auto;
-  z-index: 9 !important;
-:root[customizing]:not([inFullscreen]):has(#tabbrowser-tabs:not([expanded])) & {
-  padding-left: 86px !important;
-}
-}
 
       #urlbar-container {
+        anchor-name: --urlbar;
+        margin-inline-start: 4px !important;
+        margin-inline-end: auto !important;
         transition: max-width 0.25s 0.5s !important;
         max-width: 36px !important;
         #urlbar {
@@ -486,134 +599,26 @@
           }
         }
       }
-#urlbar-container {
-  anchor-name: --urlbar;
-  margin-inline-start: 4px !important;
-  margin-inline-end: auto !important;
-  transition: max-width .25s .5s !important;
-  max-width: 36px !important;
-#urlbar {
-  background-image: url("chrome://global/skin/icons/search-glass.svg");
-  background-repeat: no-repeat;
-  background-position: left 10px bottom 10px;
-  -moz-context-properties: fill, fill-opacity;
-  fill: currentColor;
-  transition: fill .25s .5s !important;
-&:-moz-window-inactive {
-  fill-opacity: .48;
-}
-.urlbar-page-action, .identity-box-button, #notification-popup-box,
-#identity-permission-box, #trust-icon-container, #identity-box, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher {
-  opacity: 0 !important;
-  transition: opacity .25s .5s !important;
-}
-}
-&:has(#urlbar:is(:hover, [focused], [open]), .urlbar-page-action[open], .identity-box-button[open], #notification-popup-box[open], #trust-icon-container[open]) {
-  max-width: 315px !important;
-  transition: max-width .25s 0s !important;
-#urlbar {
-  fill: transparent;
-  transition: fill .25s 0s !important;
-.urlbar-page-action, .identity-box-button, #notification-popup-box,
-#identity-permission-box, #trust-icon-container, #identity-box, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher {
-  opacity: 1 !important;
-  transition: opacity .25s 0s !important;
-}
-}
-}
-}
 
-#urlbar-container ~ :not(#urlbar-container ~ :not([hidden]) ~ *), #wrapper-urlbar-container ~ :not(#wrapper-urlbar-container ~ :not([hidden]) ~ *) {
-  anchor-name: --navbar;
-}
+      #urlbar-container ~ :not(#urlbar-container ~ :not([hidden]) ~ *),
+      #wrapper-urlbar-container
+        ~ :not(#wrapper-urlbar-container ~ :not([hidden]) ~ *) {
+        anchor-name: --navbar;
+      }
 
       #TabsToolbar {
-        grid-area: 2 / 2 / auto / auto;
-        padding-inline-end: 90px !important;
+        position: absolute;
+        position-anchor: --urlbar;
+        top: 4px;
+        left: calc(anchor(right) + 3px);
+        right: anchor(--navbar left);
         z-index: 9 !important;
         &:-moz-window-inactive {
           opacity: 1 !important;
         }
-        :root:has(
-            #nav-bar-overflow-button:not(
-              #nav-bar:not([overflowing], [nonemptyoverflow], [customizing])
-                > #nav-bar-overflow-button
-            )
-          )
-          & {
-          padding-inline-end: 126px !important;
-          :root:has(#unified-extensions-button[hidden]) & {
-            padding-inline-end: 90px !important;
-          }
-        }
-        :root:has(#unified-extensions-button[hidden]) & {
-          padding-inline-end: 54.5px !important;
-        }
-      }
-
-      #navigator-toolbox > *:not(#TabsToolbar, #nav-bar) {
-        grid-column: 1 / span 2 !important;
-      }
-
-      #PanelUI-menu-button {
-        position: fixed;
-        inset-inline-end: 0;
-        :root:not(
-            :has(
-              #nav-bar-overflow-button:not(
-                #nav-bar:not([overflowing], [nonemptyoverflow], [customizing])
-                  > #nav-bar-overflow-button
-              )
-            )
-          ):has(#unified-extensions-button[hidden])
-          & {
-          border-radius: 50% !important;
-          clip-path: inset(-20px);
-          > .toolbarbutton-badge-stack {
-            padding: 9px !important;
-          }
-        }
-      }
-
-      #nav-bar-overflow-button {
-        position: fixed;
-        inset-inline-end: 46px;
-        :root:has(#unified-extensions-button[hidden]) & {
-          border-radius: 50% 0 0 50% !important;
-          width: 37.5px !important;
-          clip-path: inset(-20px 1.5px -20px -20px);
-        }
-      }
-
-      #unified-extensions-button {
-        position: fixed;
-        inset-inline-end: 46px;
-
-        :root:has(
-            #nav-bar-overflow-button:not(
-              #nav-bar:not([overflowing], [nonemptyoverflow], [customizing])
-                > #nav-bar-overflow-button
-            )
-          )
-          & {
-          inset-inline-end: 82px;
-        }
       }
     }
   }
-#TabsToolbar {
-  position: absolute;
-  position-anchor: --urlbar;
-  top: 4px;
-  left: calc(anchor(right) + 3px);
-  right: anchor(--navbar left);
-  z-index: 9 !important;
-&:-moz-window-inactive {
-  opacity: 1 !important;
-}
-}
-}
-}
 
   /* button */
 
@@ -891,32 +896,16 @@
         width: 36px !important;
         height: 36px !important;
       }
+      #nav-bar #alltabs-button {
+        margin: 8px 8px 0 8px !important;
+        > .toolbarbutton-badge-stack {
+          width: 36px !important;
+          height: 36px !important;
+          padding: 10px 0 0 10px !important;
+        }
+      }
     }
   }
-@media not -moz-pref("sidebar.verticalTabs") {
-@media -moz-pref("gwt.oneliner") {
-#new-tab-button,
-#tabs-newtab-button,
-#nav-bar #alltabs-button,
-#TabsToolbar #alltabs-button {
-  background: var(--bg5) !important;
-  box-shadow: var(--bs3) !important;
-  border-radius: 50%;
-  margin: 4px 8px 0 8px !important;
-  padding: 0 !important;
-  width: 36px !important;
-  height: 36px !important;
-}
-#nav-bar #alltabs-button {
-  margin: 8px 8px 0 8px !important;
-> .toolbarbutton-badge-stack {
-  width: 36px !important;
-  height: 36px !important;
-  padding: 10px 0 0 10px !important;
-}
-}
-}
-}
 
   #unified-extensions-button {
     background: var(--bg5) !important;
@@ -946,105 +935,58 @@
     box-shadow: var(--bs3) !important;
   }
 
-  @media -moz-pref("sidebar.verticalTabs") or (not -moz-pref("gwt.oneliner")) {
-    #nav-bar #unified-extensions-button {
-      ~ .toolbarbutton-1 {
-        margin-inline: -1.5px !important;
-        border-radius: 0 !important;
-        width: 39px !important;
-        clip-path: inset(-20px 1.5px -20px 1.5px);
-        > .toolbarbutton-icon {
-          width: 29px !important;
-          height: 29px !important;
-          padding: 5.5px !important;
-        }
-        > .toolbarbutton-badge-stack {
-          width: 29px !important;
-          height: 29px !important;
-          padding: 6.5px 5.5px 5.5px 6.5px !important;
-        }
+  #nav-bar #unified-extensions-button {
+    ~ .toolbarbutton-1,
+    ~ .toolbaritem-combined-buttons .toolbarbutton-1 {
+      margin-inline: -1.5px !important;
+      border-radius: 0 !important;
+      width: 39px !important;
+      clip-path: inset(-20px 1.5px -20px 1.5px);
+      > .toolbarbutton-icon {
+        width: 29px !important;
+        height: 29px !important;
+        padding: 5.5px !important;
       }
-      ~ #stop-reload-button {
-        border-radius: 0 !important;
-        width: 39px !important;
-        margin-inline: -1.5px !important;
-        clip-path: inset(-20px 1.5px -20px 1.5px);
-        > #reload-button .toolbarbutton-icon,
-        #stop-button .toolbarbutton-icon {
-          margin-inline-start: 0 !important;
-          width: 29px !important;
-          height: 29px !important;
-          padding: 5.5px !important;
-        }
+      > .toolbarbutton-badge-stack {
+        width: 29px !important;
+        height: 29px !important;
+        padding: 6.5px 5.5px 5.5px 6.5px !important;
       }
-      &[hidden] + .toolbarbutton-1 {
-        border-radius: 50% 0 0 50% !important;
+    }
+    ~ .toolbaritem-combined-buttons .toolbarbutton-1 {
+      margin-inline: -3.5px !important;
+    }
+    ~ #stop-reload-button {
+      border-radius: 0 !important;
+      width: 39px !important;
+      margin-inline: -1.5px !important;
+      clip-path: inset(-20px 1.5px -20px 1.5px);
+      > #reload-button .toolbarbutton-icon,
+      #stop-button .toolbarbutton-icon {
         margin-inline-start: 0 !important;
-        width: 37.5px !important;
-        clip-path: inset(-20px 1.5px -20px -20px);
+        width: 29px !important;
+        height: 29px !important;
+        padding: 5.5px !important;
       }
-      &[hidden] + #stop-reload-button {
-        border-radius: 50% 0 0 50% !important;
-        margin-inline-start: 0 !important;
-        width: 37.5px !important;
-        clip-path: inset(-20px 1.5px -20px -20px);
-        > #reload-button .toolbarbutton-icon,
-        #stop-button .toolbarbutton-icon {
-          margin-inline-start: 2px !important;
-        }
+    }
+    &[hidden] + .toolbarbutton-1,
+    &[hidden] + .toolbaritem-combined-buttons .toolbarbutton-1 {
+      border-radius: 50% 0 0 50% !important;
+      margin-inline-start: 0 !important;
+      width: 37.5px !important;
+      clip-path: inset(-20px 1.5px -20px -20px);
+    }
+    &[hidden] + #stop-reload-button {
+      border-radius: 50% 0 0 50% !important;
+      margin-inline-start: 0 !important;
+      width: 37.5px !important;
+      clip-path: inset(-20px 1.5px -20px -20px);
+      > #reload-button .toolbarbutton-icon,
+      #stop-button .toolbarbutton-icon {
+        margin-inline-start: 2px !important;
       }
     }
   }
-#nav-bar #unified-extensions-button {
-~ .toolbarbutton-1,
-~ .toolbaritem-combined-buttons .toolbarbutton-1 {
-  margin-inline: -1.5px !important;
-  border-radius: 0 !important;
-  width: 39px !important;
-  clip-path: inset(-20px 1.5px -20px 1.5px);
-> .toolbarbutton-icon {
-  width: 29px !important;
-  height: 29px !important;
-  padding: 5.5px !important;
-}
-> .toolbarbutton-badge-stack {
-  width: 29px !important;
-  height: 29px !important;
-  padding: 6.5px 5.5px 5.5px 6.5px !important;
-}
-}
-~ .toolbaritem-combined-buttons .toolbarbutton-1 {
-  margin-inline: -3.5px !important;
-}
-~ #stop-reload-button {
-  border-radius: 0 !important;
-  width: 39px !important;
-  margin-inline: -1.5px !important;
-  clip-path: inset(-20px 1.5px -20px 1.5px);
-> #reload-button .toolbarbutton-icon, #stop-button .toolbarbutton-icon {
-  margin-inline-start: 0 !important;
-  width: 29px !important;
-  height: 29px !important;
-  padding: 5.5px !important;
-}
-}
-&[hidden] + .toolbarbutton-1,
-&[hidden] + .toolbaritem-combined-buttons .toolbarbutton-1 {
-  border-radius: 50% 0 0 50% !important;
-  margin-inline-start: 0 !important;
-  width: 37.5px !important;
-  clip-path: inset(-20px 1.5px -20px -20px);
-}
-&[hidden] + #stop-reload-button {
-  border-radius: 50% 0 0 50% !important;
-  margin-inline-start: 0 !important;
-  width: 37.5px !important;
-  clip-path: inset(-20px 1.5px -20px -20px);
-> #reload-button .toolbarbutton-icon, #stop-button .toolbarbutton-icon {
-  margin-inline-start: 2px !important;
-}
-}
-}
 
   #PanelUI-menu-button,
   #nav-bar-overflow-button {
@@ -1066,9 +1008,14 @@
       height: 29px !important;
       padding: 6px !important;
     }
-    :root:not(:has(#unified-extensions-button ~ .toolbarbutton-1)):has(
-        #unified-extensions-button[hidden]
-      )
+    :root:not(
+        :has(
+          #unified-extensions-button ~ .toolbarbutton-1,
+          #unified-extensions-button
+            ~ .toolbaritem-combined-buttons
+            .toolbarbutton-1
+        )
+      ):has(#unified-extensions-button[hidden])
       & {
       border-radius: 50% 0 0 50% !important;
       margin-inline-start: 0 !important;
@@ -1076,24 +1023,6 @@
       clip-path: inset(-20px 1.5px -20px -20px);
     }
   }
-#nav-bar-overflow-button {
-  margin-inline: 0 !important;
-  border-radius: 0 !important;
-  clip-path: inset(-20px 1.5px -20px 1.5px);
-  margin-inline: -1.5px !important;
-  width: 39px !important;
-> .toolbarbutton-icon {
-  width: 29px !important;
-  height: 29px !important;
-  padding: 6px !important;
-}
-:root:not(:has(#unified-extensions-button ~ .toolbarbutton-1, #unified-extensions-button ~ .toolbaritem-combined-buttons .toolbarbutton-1)):has(#unified-extensions-button[hidden]) & {
-  border-radius: 50% 0 0 50% !important;
-  margin-inline-start: 0 !important;
-  width: 37.5px !important;
-  clip-path: inset(-20px 1.5px -20px -20px);
-}
-}
 
   #PanelUI-menu-button {
     border-radius: 0 50% 50% 0 !important;
@@ -1105,28 +1034,29 @@
       scale: 1.1;
       padding: 5px !important;
     }
+    @media -moz-pref("sidebar.verticalTabs") or -moz-pref("gwt.oneliner") {
+      :root:not(
+          :has(
+            #nav-bar-overflow-button:not(
+              #nav-bar:not([overflowing], [nonemptyoverflow], [customizing])
+                > #nav-bar-overflow-button
+            ),
+            #unified-extensions-button ~ .toolbarbutton-1,
+            #unified-extensions-button
+              ~ .toolbaritem-combined-buttons
+              .toolbarbutton-1
+          )
+        ):has(#unified-extensions-button[hidden])
+        & {
+        border-radius: 50% !important;
+        width: 36px !important;
+        clip-path: inset(-20px);
+        > .toolbarbutton-badge-stack {
+          padding: 9px !important;
+        }
+      }
+    }
   }
-#PanelUI-menu-button {
-  border-radius: 0 50% 50% 0 !important;
-  margin-inline-start: -1.5px !important;
-  margin-inline-end: 10px !important;
-  clip-path: inset(-20px -20px -20px 1.5px);
-  width: 37.5px !important;
-> .toolbarbutton-badge-stack {
-  scale: 1.1;
-  padding: 5px !important;
-}
-@media -moz-pref("sidebar.verticalTabs") or -moz-pref("gwt.oneliner") {
-:root:not(:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button), #unified-extensions-button ~ .toolbarbutton-1, #unified-extensions-button ~ .toolbaritem-combined-buttons .toolbarbutton-1)):has(#unified-extensions-button[hidden]) & {
-  border-radius: 50% !important;
-  width: 36px !important;
-  clip-path: inset(-20px);
-> .toolbarbutton-badge-stack {
-  padding: 9px !important;
-}
-}
-}
-}
 
   @media -moz-pref("sidebar.verticalTabs") {
     #nav-bar #alltabs-button,
@@ -1144,43 +1074,7 @@
         padding: 10px !important;
       }
     }
-
-    #PanelUI-menu-button {
-      :root:not(
-          :has(
-            #nav-bar-overflow-button:not(
-              #nav-bar:not([overflowing], [nonemptyoverflow], [customizing])
-                > #nav-bar-overflow-button
-            ),
-            #unified-extensions-button ~ .toolbarbutton-1
-          )
-        ):has(#unified-extensions-button[hidden])
-        & {
-        border-radius: 50% !important;
-        clip-path: inset(-20px);
-        > .toolbarbutton-badge-stack {
-          padding: 9px !important;
-        }
-      }
-    }
   }
-@media -moz-pref("sidebar.verticalTabs") {
-#nav-bar #alltabs-button,
-#TabsToolbar #alltabs-button {
-  background: var(--bg5) !important;
-  box-shadow: var(--bs3) !important;
-  border-radius: 50%;
-  margin: 8px !important;
-  padding: 0 !important;
-  width: 36px !important;
-  height: 36px !important;
-> .toolbarbutton-badge-stack {
-  width: 36px !important;
-  height: 36px !important;
-  padding: 10px !important;
-}
-}
-}
 
   @media (not -moz-pref("gwt.oneliner")) and (not -moz-pref("sidebar.verticalTabs")) {
     #new-tab-button,
@@ -1202,6 +1096,9 @@
                 > #nav-bar-overflow-button
             ),
             #unified-extensions-button ~ .toolbarbutton-1,
+            #unified-extensions-button
+              ~ .toolbaritem-combined-buttons
+              .toolbarbutton-1,
             #unified-extensions-button ~ #stop-reload-button
           )
         ):has(#unified-extensions-button[hidden])
@@ -1216,29 +1113,6 @@
         padding: 6px !important;
       }
     }
-@media (not -moz-pref("gwt.oneliner")) and (not -moz-pref("sidebar.verticalTabs")) {
-#new-tab-button, #tabs-newtab-button {
-  background: var(--bg5) !important;
-  box-shadow: var(--bs3) !important;
-  transform: none !important;
-  width: 40.5px !important;
-  height: 36px !important;
-  position: fixed;
-  top: 8px;
-  right: 44.5px;
-  z-index: 9;
-  clip-path: inset(-20px 1.5px -20px 1.5px);
-:root:not(:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button), #unified-extensions-button ~ .toolbarbutton-1, #unified-extensions-button ~ .toolbaritem-combined-buttons .toolbarbutton-1, #unified-extensions-button ~ #stop-reload-button)):has(#unified-extensions-button[hidden]) & {
-  border-radius: 50% 0 0 50% !important;
-  clip-path: inset(-20px 1.5px -20px -20px);
-  width: 37.5px !important;
-}
-> .toolbarbutton-icon {
-  width: 29px !important;
-  height: 29px !important;
-  padding: 6px !important;
-}
-}
 
     :root:not([customizing]) #TabsToolbar #alltabs-button {
       display: none;
@@ -1266,131 +1140,149 @@
 
   /* urlbar */
 
-#urlbar {
-  transform: none !important;
-&[breakout][breakout-extend] {
-  margin-left: unset !important;
-  width: var(--urlbar-width) !important;
-  top: 8px !important;
-.urlbarView {
-  width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline)) !important;
-  margin-inline: calc(-1 * var(--urlbar-margin-inline)) !important;
-  margin-top: 6px !important;
-  border-radius: 20px !important;
-  background-color: var(--bg4) !important;
-  backdrop-filter: blur(15px) !important;
-  box-shadow: var(--bs1) !important;
-  animation-name: panel-in !important;
-  animation-duration: 180ms !important;
-}
-.urlbarView-row {
-  border-radius: 50px !important;
-}
-.urlbarView-row-inner {
-  flex-wrap: nowrap !important;
-}
-.urlbarView-no-wrap {
-  max-width: 50% !important;
-  flex-basis: 0 !important;
-}
-.urlbarView-row[has-url] .urlbarView-url {
-  margin-left: 0 !important;
-}
-.urlbarView-row[has-url] .urlbarView-title-separator {
-  display: block !important;
-}
-.urlbarView-press-tab-label {
-  color: light-dark(#000, #fff) !important;
-}
-}
-&:has(#identity-box[pageproxystate="valid"].extensionPage) {
-.urlbar-page-action,
-.identity-box-button,
-.searchmode-switcher,
-#trust-icon-container {
-  display: none !important;
-}
-.urlbar-input-container {
-  padding-inline-start: 11px !important;
-&::before {
-  content: url("chrome://global/skin/icons/search-glass.svg");
-  margin-top: 2px;
-  margin-right: 6px;
-  -moz-context-properties: fill, fill-opacity;
-  fill: currentColor;
-  fill-opacity: .48;
-  scale: .85;
-}
-}
-@media -moz-pref("gwt.oneliner") {
-@media not -moz-pref("sidebar.verticalTabs") {
-.urlbar-input-container .urlbar-input {
-  mask-image: linear-gradient(to left, transparent, #fff 15ch) !important;
-}
-}
-}
-}
-@media -moz-pref("sidebar.verticalTabs") or (not -moz-pref("gwt.oneliner")) {
-#urlbar:not([open], [focused], [usertyping]) .urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
-  text-align: center !important;
-.urlbar:not(#searchbar-new)[searchmode] & {
-  text-align: left !important;
-}
-}
-.urlbar-page-action,
-#notification-popup-box,
-#identity-permission-box,
-#trust-icon-container {
-  margin-inline: -3px !important;
-}
-#trust-icon-container {
-  margin-inline-start: 2px !important;
-}
-#star-button-box {
-  margin-inline-end: 2px !important;
-}
-.urlbar-page-action, .identity-box-button, #notification-popup-box,
-#identity-permission-box, #trust-icon-container, #identity-box {
-  scale: .85;
-  background: transparent !important;
-  opacity: .75 !important;
-&:is(:hover, [open]) {
-  opacity: 1 !important;
-}
-}
-#notification-popup-box {
-  fill-opacity: 1 !important;
-}
-#identity-box {
-  scale: 1;
-  fill-opacity: 1 !important;
-}
-#identity-box[pageproxystate="valid"].chromeUI {
-  opacity: 1 !important;
-}
-}
-@media -moz-pref("gwt.oneliner") and (not -moz-pref("sidebar.verticalTabs")) {
-&[breakout][breakout-extend] .urlbarView {
-  margin-inline-start: -25% !important;
-  min-width: 150% !important;
-}
-.urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
-  mask-image: linear-gradient(to left, transparent, #fff 15ch) !important;
-#urlbar:is(:hover, [focused], [open]) & {
-  mask-image: none !important;
-}
-}
-.urlbar-input::placeholder {
-  text-align: left !important;
-}
-}
-#identity-box {
-  min-height: 28px !important;
-}
-&:-moz-window-inactive {
-*:not(.urlbar-background) { opacity: .78; }
-}
-}
+  #urlbar {
+    transform: none !important;
+    &[breakout][breakout-extend] {
+      margin-left: unset !important;
+      width: var(--urlbar-width) !important;
+      top: 8px !important;
+      .urlbarView {
+        width: calc(
+          var(--urlbar-width) + 2 * var(--urlbar-margin-inline)
+        ) !important;
+        margin-inline: calc(-1 * var(--urlbar-margin-inline)) !important;
+        margin-top: 6px !important;
+        border-radius: 20px !important;
+        background-color: var(--bg4) !important;
+        backdrop-filter: blur(15px) !important;
+        box-shadow: var(--bs1) !important;
+        animation-name: panel-in !important;
+        animation-duration: 180ms !important;
+      }
+      .urlbarView-row {
+        border-radius: 50px !important;
+      }
+      .urlbarView-row-inner {
+        flex-wrap: nowrap !important;
+      }
+      .urlbarView-no-wrap {
+        max-width: 50% !important;
+        flex-basis: 0 !important;
+      }
+      .urlbarView-row[has-url] .urlbarView-url {
+        margin-left: 0 !important;
+      }
+      .urlbarView-row[has-url] .urlbarView-title-separator {
+        display: block !important;
+      }
+      .urlbarView-press-tab-label {
+        color: light-dark(oklch(0% 0 0), oklch(100% 0 0)) !important;
+      }
+    }
+    &:has(#identity-box[pageproxystate="valid"].extensionPage) {
+      .urlbar-page-action,
+      .identity-box-button,
+      .searchmode-switcher,
+      #trust-icon-container {
+        display: none !important;
+      }
+      .urlbar-input-container {
+        padding-inline-start: 11px !important;
+        &::before {
+          content: url("chrome://global/skin/icons/search-glass.svg");
+          margin-top: 2px;
+          margin-right: 6px;
+          -moz-context-properties: fill, fill-opacity;
+          fill: currentColor;
+          fill-opacity: 0.48;
+          scale: 0.85;
+        }
+      }
+      @media -moz-pref("gwt.oneliner") {
+        @media not -moz-pref("sidebar.verticalTabs") {
+          .urlbar-input-container .urlbar-input {
+            mask-image: linear-gradient(
+              to left,
+              transparent,
+              oklch(100% 0 0) 15ch
+            ) !important;
+          }
+        }
+      }
+    }
+    @media -moz-pref("sidebar.verticalTabs") or (not -moz-pref("gwt.oneliner")) {
+      #urlbar:not([open], [focused], [usertyping])
+        .urlbar-input-container[pageproxystate="invalid"]
+        .urlbar-input {
+        text-align: center !important;
+        .urlbar:not(#searchbar-new)[searchmode] & {
+          text-align: left !important;
+        }
+      }
+      .urlbar-page-action,
+      #notification-popup-box,
+      #identity-permission-box,
+      #trust-icon-container {
+        margin-inline: -3px !important;
+      }
+      #trust-icon-container {
+        margin-inline-start: 2px !important;
+      }
+      #star-button-box {
+        margin-inline-end: 2px !important;
+      }
+      .urlbar-page-action,
+      .identity-box-button,
+      #notification-popup-box,
+      #identity-permission-box,
+      #trust-icon-container,
+      #identity-box {
+        scale: 0.85;
+        background: transparent !important;
+        opacity: 0.75 !important;
+        &:is(:hover, [open]) {
+          opacity: 1 !important;
+        }
+      }
+      #notification-popup-box {
+        fill-opacity: 1 !important;
+      }
+      #identity-box {
+        scale: 1;
+        fill-opacity: 1 !important;
+      }
+      #identity-box[pageproxystate="valid"].chromeUI {
+        opacity: 1 !important;
+      }
+    }
+    @media -moz-pref("gwt.oneliner") and (not -moz-pref("sidebar.verticalTabs")) {
+      &[breakout][breakout-extend] .urlbarView {
+        margin-inline-start: -25% !important;
+        min-width: 150% !important;
+      }
+      .urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
+        mask-image: linear-gradient(
+          to left,
+          transparent,
+          oklch(100% 0 0) 15ch
+        ) !important;
+        #urlbar:is(:hover, [focused], [open]) & {
+          mask-image: none !important;
+        }
+      }
+      .urlbar-input::placeholder {
+        text-align: left !important;
+      }
+    }
+    #identity-box {
+      min-height: 28px !important;
+    }
+    &:-moz-window-inactive {
+      *:not(.urlbar-background) {
+        opacity: 0.78;
+      }
+    }
+  }
 
   .urlbar-background {
     height: 36px !important;
@@ -1613,7 +1505,7 @@
     #tabbrowser-tabs[movingtab-group] & {
       &[dragover-groupTarget] {
         background-color: color-mix(
-          in srgb,
+          in oklch,
           var(--dragover-tab-group-color) 38%,
           transparent
         ) !important;
@@ -1627,32 +1519,32 @@
       .tabbrowser-tab & {
         tab-group:not([collapsed]) > tab > .tab-stack > & {
           background-color: color-mix(
-            in srgb,
+            in oklch,
             var(--tab-group-color) 21%,
             transparent
           ) !important;
           &[multiselected] {
             background: color-mix(
-              in srgb,
+              in oklch,
               var(--bg1) 26%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg0) 26%,
                 transparent
               ) !important;
             }
             &[selected] {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg1) 36%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg0) 36%,
                   transparent
                 ) !important;
@@ -1661,32 +1553,32 @@
           }
           tab:not([selected]):hover & {
             background-color: color-mix(
-              in srgb,
+              in oklch,
               var(--tab-group-color) 36%,
               transparent
             ) !important;
             &[multiselected] {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg1) 26%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg0) 26%,
                   transparent
                 ) !important;
               }
               &[selected] {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg1) 36%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg0) 36%,
                     transparent
                   ) !important;
@@ -1713,13 +1605,13 @@
             }
             &[multiselected] {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg1) 36%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg0) 36%,
                   transparent
                 ) !important;
@@ -1727,13 +1619,13 @@
             }
             tab-split-view-wrapper & {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg1) 36%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg0) 36%,
                   transparent
                 ) !important;
@@ -1752,13 +1644,13 @@
           }
           tab-split-view-wrapper & {
             background: color-mix(
-              in srgb,
+              in oklch,
               var(--bg1) 26%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg0) 26%,
                 transparent
               ) !important;
@@ -1770,26 +1662,26 @@
             :not(:hover) & {
               &[multiselected] {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg1) 26%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg0) 26%,
                     transparent
                   ) !important;
                 }
                 &[selected] {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg1) 36%,
                     transparent
                   ) !important;
                   @media -moz-pref("gwt.ac") {
                     background: color-mix(
-                      in srgb,
+                      in oklch,
                       var(--bg0) 36%,
                       transparent
                     ) !important;
@@ -1798,13 +1690,13 @@
               }
               tab-group > tab-split-view-wrapper & {
                 background-color: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--tab-group-color) 14%,
                   transparent
                 ) !important;
                 &[selected] {
                   background-color: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--tab-group-color) 24%,
                     transparent
                   ) !important;
@@ -1813,7 +1705,7 @@
               #tabbrowser-tabs[movingtab-group] & {
                 &[dragover-groupTarget] {
                   background-color: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--dragover-tab-group-color) 38%,
                     transparent
                   ) !important;
@@ -1821,13 +1713,13 @@
               }
               tab-split-view-wrapper & {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg1) 26%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg0) 26%,
                     transparent
                   ) !important;
@@ -1839,13 +1731,13 @@
               box-shadow: var(--bs3) !important;
               &[multiselected] {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg1) 36%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg0) 36%,
                     transparent
                   ) !important;
@@ -1853,13 +1745,13 @@
               }
               tab-split-view-wrapper & {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg1) 36%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg0) 36%,
                     transparent
                   ) !important;
@@ -1881,13 +1773,13 @@
           background: var(--bg2-active) !important;
           &[multiselected] {
             background: color-mix(
-              in srgb,
+              in oklch,
               var(--bg1) 36%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg0) 36%,
                 transparent
               ) !important;
@@ -1895,13 +1787,13 @@
           }
           tab-split-view-wrapper & {
             background: color-mix(
-              in srgb,
+              in oklch,
               var(--bg1) 36%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg0) 36%,
                 transparent
               ) !important;
@@ -1910,13 +1802,13 @@
         }
         tab-split-view-wrapper & {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--bg1) 26%,
             transparent
           ) !important;
           @media -moz-pref("gwt.ac") {
             background: color-mix(
-              in srgb,
+              in oklch,
               var(--bg0) 26%,
               transparent
             ) !important;
@@ -1931,17 +1823,17 @@
           > .tab-stack
           > & {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--tab-group-color) 24%,
             transparent
           ) !important;
         }
       }
       &[multiselected] {
-        background: color-mix(in srgb, var(--bg1) 26%, transparent) !important;
+        background: color-mix(in oklch, var(--bg1) 26%, transparent) !important;
         @media -moz-pref("gwt.ac") {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--bg0) 26%,
             transparent
           ) !important;
@@ -2221,7 +2113,7 @@
     tab-group > tab-split-view-wrapper & {
       &:not([hasactivetab]) {
         background: color-mix(
-          in srgb,
+          in oklch,
           var(--tab-group-color) 14%,
           transparent
         ) !important;
@@ -2241,8 +2133,8 @@
     }
     &:is([soundplaying], [muted], [activemedia-blocked]) {
       background: light-dark(
-        color-mix(in srgb, var(--bg2) 20%, oklch(100% 0 0)),
-        color-mix(in srgb, var(--bg2) 80%, oklch(45% 0 0))
+        color-mix(in oklch, var(--bg2) 20%, oklch(100% 0 0)),
+        color-mix(in oklch, var(--bg2) 80%, oklch(45% 0 0))
       ) !important;
       backdrop-filter: blur(30px);
       border: none !important;
@@ -2251,14 +2143,14 @@
       }
       &:hover {
         background: light-dark(
-          color-mix(in srgb, var(--bg2-hover) 20%, oklch(100% 0 0)),
-          color-mix(in srgb, var(--bg2-hover) 80%, oklch(45% 0 0))
+          color-mix(in oklch, var(--bg2-hover) 20%, oklch(100% 0 0)),
+          color-mix(in oklch, var(--bg2-hover) 80%, oklch(45% 0 0))
         ) !important;
       }
       &:active {
         background: light-dark(
-          color-mix(in srgb, var(--bg2-active) 20%, oklch(100% 0 0)),
-          color-mix(in srgb, var(--bg2-active) 80%, oklch(45% 0 0))
+          color-mix(in oklch, var(--bg2-active) 20%, oklch(100% 0 0)),
+          color-mix(in oklch, var(--bg2-active) 80%, oklch(45% 0 0))
         ) !important;
       }
     }
@@ -2302,21 +2194,21 @@
     scale: 0.7;
     list-style-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='context-fill' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 3 5.083 C 3 3.933 3.933 3 5.083 3 L 10.917 3 C 12.067 3 13 3.933 13 5.083 L 13 8 L 10.083 8 C 8.933 8 8 8.933 8 10.083 L 8 13 L 5.083 13 C 3.933 13 3 12.067 3 10.917 L 3 5.083 Z M 8.833 12.882 C 9.125 12.78 9.393 12.613 9.616 12.39 L 12.39 9.616 C 12.613 9.393 12.78 9.125 12.882 8.833 L 10.083 8.833 C 9.393 8.833 8.833 9.393 8.833 10.083 L 8.833 12.882 Z'/%3E%3C/svg%3E") !important;
     background: light-dark(
-      color-mix(in srgb, var(--bg2) 20%, oklch(100% 0 0)),
-      color-mix(in srgb, var(--bg2) 80%, oklch(45% 0 0))
+      color-mix(in oklch, var(--bg2) 20%, oklch(100% 0 0)),
+      color-mix(in oklch, var(--bg2) 80%, oklch(45% 0 0))
     ) !important;
     backdrop-filter: blur(15px);
     border: none !important;
     &:hover {
       background: light-dark(
-        color-mix(in srgb, var(--bg2-hover) 20%, oklch(100% 0 0)),
-        color-mix(in srgb, var(--bg2-hover) 80%, oklch(45% 0 0))
+        color-mix(in oklch, var(--bg2-hover) 20%, oklch(100% 0 0)),
+        color-mix(in oklch, var(--bg2-hover) 80%, oklch(45% 0 0))
       ) !important;
     }
     &:active {
       background: light-dark(
-        color-mix(in srgb, var(--bg2-active) 20%, oklch(100% 0 0)),
-        color-mix(in srgb, var(--bg2-active) 80%, oklch(45% 0 0))
+        color-mix(in oklch, var(--bg2-active) 20%, oklch(100% 0 0)),
+        color-mix(in oklch, var(--bg2-active) 80%, oklch(45% 0 0))
       ) !important;
     }
   }
@@ -2481,21 +2373,21 @@
       .tab-background {
         .tabbrowser-tab:hover & {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--tab-group-color) 21%,
             transparent
           ) !important;
         }
         .tabbrowser-tab[selected]:hover & {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--tab-group-color) 24%,
             transparent
           ) !important;
         }
         &[selected] {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--tab-group-color) 24%,
             transparent
           ) !important;
@@ -2518,7 +2410,7 @@
         background: var(--bg2) !important;
         tab-group & {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--tab-group-color) 14%,
             transparent
           ) !important;
@@ -2634,7 +2526,7 @@
       font-weight: normal !important;
       color: var(--tab-group-color) !important;
       background-color: color-mix(
-        in srgb,
+        in oklch,
         var(--tab-group-color) 30%,
         transparent
       ) !important;
@@ -3094,14 +2986,14 @@
         border: none !important;
         &:hover {
           background-color: color-mix(
-            in srgb,
+            in oklch,
             AccentColor 90%,
             oklch(100% 0 0)
           ) !important;
         }
         &:hover:active {
           background-color: color-mix(
-            in srgb,
+            in oklch,
             AccentColor 90%,
             oklch(0% 0 0)
           ) !important;
@@ -3109,18 +3001,18 @@
         @media -moz-pref("gwt.ac") {
           background-color: light-dark(
             var(--bg0),
-            color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
+            color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0))
           ) !important;
           &:hover {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, oklch(100% 0 0)),
-              color-mix(in srgb, var(--bg0) 80%, oklch(100% 0 0))
+              color-mix(in oklch, var(--bg0) 90%, oklch(100% 0 0)),
+              color-mix(in oklch, var(--bg0) 80%, oklch(100% 0 0))
             ) !important;
           }
           &:hover:active {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)),
-              color-mix(in srgb, var(--bg0) 80%, oklch(0% 0 0))
+              color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0)),
+              color-mix(in oklch, var(--bg0) 80%, oklch(0% 0 0))
             ) !important;
           }
         }
@@ -3144,14 +3036,14 @@
         border: none !important;
         &:hover {
           background-color: color-mix(
-            in srgb,
+            in oklch,
             AccentColor 90%,
             oklch(100% 0 0)
           ) !important;
         }
         &:hover:active {
           background-color: color-mix(
-            in srgb,
+            in oklch,
             AccentColor 90%,
             oklch(0% 0 0)
           ) !important;
@@ -3159,18 +3051,18 @@
         @media -moz-pref("gwt.ac") {
           background-color: light-dark(
             var(--bg0),
-            color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
+            color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0))
           ) !important;
           &:hover {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, oklch(100% 0 0)),
-              color-mix(in srgb, var(--bg0) 80%, oklch(100% 0 0))
+              color-mix(in oklch, var(--bg0) 90%, oklch(100% 0 0)),
+              color-mix(in oklch, var(--bg0) 80%, oklch(100% 0 0))
             ) !important;
           }
           &:hover:active {
             background-color: light-dark(
-              color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)),
-              color-mix(in srgb, var(--bg0) 80%, oklch(0% 0 0))
+              color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0)),
+              color-mix(in oklch, var(--bg0) 80%, oklch(0% 0 0))
             ) !important;
           }
         }
@@ -3598,16 +3490,14 @@
 
   @-moz-document url("chrome://browser/content/sidebar/sidebar-customize.html")
   {
-    [data-l10n-id="sidebar-show-on-the-right"] {
+    [data-l10n-id="sidebar-show-on-the-right"],
+    [data-l10n-id="sidebar-hide-tabs-and-sidebar"] {
       display: none !important;
     }
+    * {
+      --panel-separator-color: transparent !important;
+    }
   }
-@-moz-document url("chrome://browser/content/sidebar/sidebar-customize.html") {
-[data-l10n-id="sidebar-show-on-the-right"], [data-l10n-id="sidebar-hide-tabs-and-sidebar"] {
-  display: none !important;
-}
-* { --panel-separator-color: transparent !important; }
-}
 
   @-moz-document url("chrome://browser/content/genai/chat.html")
   {
@@ -3741,16 +3631,10 @@
 
   #PanelUI-menu-button {
     list-style-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='context-fill' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m 5,5 h 14 c 1.33,0 1.29,1.96 -0.04,1.96 H 5 C 3.67,6.96 3.67,5 5,5 m 14,6 H 5 c -1.33,0 -1.33,2 0,2 h 14 c 1.33,0 1.33,-2 0,-2 m 0,8 H 5 C 3.67,19 3.67,17 5,17 H 19 C 20.33,17 20.33,19 19,19'/%3E%3C/svg%3E") !important;
-    @media -moz-pref("gwt.oneliner") and (not -moz-pref("sidebar.verticalTabs")) {
+    :root:has(#unified-extensions-button[hidden]) & {
       list-style-image: url("chrome://global/skin/icons/more.svg") !important;
     }
   }
-#PanelUI-menu-button {
-  list-style-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='context-fill' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m 5,5 h 14 c 1.33,0 1.29,1.96 -0.04,1.96 H 5 C 3.67,6.96 3.67,5 5,5 m 14,6 H 5 c -1.33,0 -1.33,2 0,2 h 14 c 1.33,0 1.33,-2 0,-2 m 0,8 H 5 C 3.67,19 3.67,17 5,17 H 19 C 20.33,17 20.33,19 19,19'/%3E%3C/svg%3E") !important;
-:root:has(#unified-extensions-button[hidden]) & {
-  list-style-image: url("chrome://global/skin/icons/more.svg") !important;
-}
-}
 
   #sanitizeEverythingWarningIcon {
     list-style-image: url("chrome://global/skin/icons/warning.svg") !important;
@@ -3851,21 +3735,15 @@
     @media -moz-pref("sidebar.verticalTabs") {
       #sidebar-container {
         max-width: 240px !important;
-        @media -moz-pref("sidebar.visibility", "expand-on-hover") {
-          background-color: var(--toolbar-background-color) !important;
+        :root[sidebar-expand-on-hover] & {
+          &[sidebar-launcher-expanded],
+          &[sidebar-ongoing-animations]:not([sidebar-launcher-expanded]) {
+            background-image: none !important;
+            background-color: var(--bg4) !important;
+            backdrop-filter: blur(15px);
+          }
         }
       }
-@media -moz-pref("sidebar.verticalTabs") {
-#sidebar-container {
-  max-width: 240px !important;
-:root[sidebar-expand-on-hover] & {
-&[sidebar-launcher-expanded], &[sidebar-ongoing-animations]:not([sidebar-launcher-expanded]) {
-  background-image: none !important;
-  background-color: var(--bg4) !important;
-  backdrop-filter: blur(15px);
-}
-}
-}
 
       .sidebar-browser-stack {
         background-color: var(--toolbar-background-color) !important;
@@ -3955,7 +3833,7 @@
         border-radius: 50px !important;
         width: 100% !important;
         background-color: color-mix(
-          in srgb,
+          in oklch,
           var(--tab-group-color) 30%,
           transparent
         ) !important;
@@ -4045,7 +3923,7 @@
               margin-left: 0 !important;
               padding-left: 86px !important;
             }
-            @media -moz-pref("sidebar.visibility", "expand-on-hover") {
+            :root[sidebar-expand-on-hover] & {
               margin-left: 0 !important;
               padding-left: 86px !important;
               :root[inFullscreen] & {
@@ -4053,21 +3931,6 @@
               }
             }
           }
-&:has([sidebar-shown]) {
-#nav-bar {
-  margin-left: 240px !important;
-@media (min-width: 610px) and (max-width: 866px) {
-  margin-left: 0 !important;
-  padding-left: 86px !important;
-}
-:root[sidebar-expand-on-hover] & {
-  margin-left: 0 !important;
-  padding-left: 86px !important;
-:root[inFullscreen] & {
-  padding-left: 0 !important;
-}
-}
-}
 
           #sidebar-container {
             z-index: 5;
@@ -4077,80 +3940,50 @@
               @media -moz-pref("gwt.toolbar") {
                 margin-top: -8px !important;
               }
-            }
-            @media -moz-pref("sidebar.visibility", "expand-on-hover") {
-              margin-top: 0 !important;
+              :root[sidebar-expand-on-hover] & {
+                margin-top: 0 !important;
+              }
             }
           }
-#sidebar-container {
-  z-index: 5;
-  margin-top: -8px !important;
-:root:has(#PersonalToolbar:not([collapsed])) & {
-  margin-top: -36px !important;
-@media -moz-pref("gwt.toolbar") {
-  margin-top: -8px !important;
-}
-:root[sidebar-expand-on-hover] & {
-  margin-top: 0 !important;
-}
-}
-}
 
-          @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
-            #nav-bar #sidebar-button {
-              position: fixed !important;
-              left: 188px;
-              top: 0;
-              &:not([disabled], [open]):hover {
-                background-color: var(
-                  --toolbarbutton-background-color-hover
-                ) !important;
-              }
-              &:not([disabled], [open]):active {
-                background-color: var(
-                  --toolbarbutton-background-color-active
-                ) !important;
-              }
-              &:is(:hover:active, [open], [checked])
-                > :is(
-                  .toolbarbutton-icon,
-                  .toolbarbutton-text,
-                  .toolbarbutton-badge-stack
-                ) {
-                background-color: transparent !important;
-              }
+          #nav-bar #sidebar-button {
+            position: fixed !important;
+            left: 188px;
+            top: 0;
+            :root[sidebar-expand-on-hover] & {
+              position: unset !important;
             }
-            #PersonalToolbar:not([customizing]) {
-              margin-inline-start: 240px !important;
-              width: calc(100% - 240px);
+            &:not([disabled], [open]):hover {
+              background-color: var(
+                --toolbarbutton-background-color-hover
+              ) !important;
+            }
+            &:not([disabled], [open]):active {
+              background-color: var(
+                --toolbarbutton-background-color-active
+              ) !important;
+            }
+            &:is(:hover:active, [open], [checked])
+              > :is(
+                .toolbarbutton-icon,
+                .toolbarbutton-text,
+                .toolbarbutton-badge-stack
+              ) {
+              background-color: transparent !important;
             }
           }
-#nav-bar #sidebar-button {
-  position: fixed !important;
-  left: 188px;
-  top: 0;
-:root[sidebar-expand-on-hover] & {
-  position: unset !important;
-}
-&:not([disabled], [open]):hover {
-  background-color: var(--toolbarbutton-background-color-hover) !important;
-}
-&:not([disabled], [open]):active {
-  background-color: var(--toolbarbutton-background-color-active) !important;
-}
-&:is(:hover:active, [open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
-  background-color: transparent !important;
-}
-}
 
-#PersonalToolbar:not([customizing]) {
-  margin-inline-start: 240px !important;
-  width: calc(100% - 240px);
-:root[sidebar-expand-on-hover]:has(#PersonalToolbar:not([collapsed])) & {
-  margin-inline-start: 0 !important;
-  width: 100%;
-}
-}
+          #PersonalToolbar:not([customizing]) {
+            margin-inline-start: 240px !important;
+            width: calc(100% - 240px);
+            :root[sidebar-expand-on-hover]:has(
+                #PersonalToolbar:not([collapsed])
+              )
+              & {
+              margin-inline-start: 0 !important;
+              width: 100%;
+            }
+          }
 
           #urlbar-container {
             @media (min-width: 610px) and (max-width: 866px) {
@@ -4169,9 +4002,12 @@
       }
 
       :root:has(#tabbrowser-tabs:not([expanded])) {
-        @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
-          #sidebar-container {
-            visibility: collapse;
+        #sidebar-container {
+          visibility: collapse;
+          max-width: 25px !important;
+          @media -moz-pref("sidebar.visibility", "expand-on-hover") {
+            visibility: visible;
+            margin-inline-end: -24px !important;
           }
           #sidebar-box {
             margin-inline-start: 8px !important;
@@ -4194,35 +4030,6 @@
             padding: 10px !important;
           }
         }
-:root:has(#tabbrowser-tabs:not([expanded])) {
-#sidebar-container {
-  visibility: collapse;
-  max-width: 25px !important;
-@media -moz-pref("sidebar.visibility", "expand-on-hover") {
-  visibility: visible;
-  margin-inline-end: -24px !important;
-}
-#sidebar-box {
-  margin-inline-start: 8px !important;
-}
-.split-view-panel {
-:root:has([sidebar-shown]) & {
-&[column="0"] {
-  margin-left: 8px !important;
-}
-}
-:root:has(#sidebar-box:not([hidden])) & {
-&[column="0"] {
-  margin-left: 0 !important;
-}
-}
-}
-}
-#sidebar-button {
-> .toolbarbutton-badge-stack {
-  padding: 10px !important;
-}
-}
 
         .tab-group-label {
           font-size: 0 !important;
@@ -4277,152 +4084,106 @@
         }
       }
 
-      @media -moz-pref("sidebar.visibility", "hide-sidebar") {
-        :root:not(
-            [chromehidden~="toolbar"],
-            [customizing],
-            [inDOMFullscreen]
-          ):has(#tabbrowser-tabs:not([expanded])) {
-          --dp: none;
-          --op: 0;
-
-          #sidebar-box,
-          .sidebar-splitter {
-            visibility: collapse;
-          }
-
-          .split-view-panel {
-            margin: 8px !important;
-          }
-@media -moz-pref("sidebar.visibility", "expand-on-hover") {
-tab-group {
-.tab-group-label {
-  background-position: left 10px bottom 10px;
-tab-group[collapsed] > .tab-group-label-container & {
-  background-position: left 8px bottom 8px;
-}
-}
-}
-}
-
-          @media -moz-pref("gwt.toolbox") {
-            #navigator-toolbox {
-              position: absolute !important;
+      @media -moz-pref("gwt.toolbox") {
+        :root[sidebar-expand-on-hover] {
+          #navigator-toolbox {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            transition: top 0.25s 0s !important;
+            &:not(:hover) {
+              top: -53px;
+              transition: top 0.25s 0.5s !important;
+            }
+            :root:has(#urlbar[open]) & {
+              top: -95px;
+            }
+            :root:has(
+                #urlbar[focused],
+                #urlbar
+                  :is(
+                    .urlbar-page-action[open],
+                    .identity-box-button[open],
+                    #notification-popup-box[open],
+                    #trust-icon-container[open]
+                  ),
+                toolbarbutton:is(
+                    #unified-extensions-button,
+                    #downloads-button,
+                    #PanelUI-menu-button,
+                    #nav-bar-overflow-button,
+                    #alltabs-button
+                  )[open],
+                .searchmode-switcher[open],
+                #placesContext:hover,
+                #toggle_PersonalToolbar:hover,
+                #toolbar-context-menu
+                  > menuitem:not(
+                    #toolbar-context-openANewTab,
+                    #toolbar-context-reloadSelectedTab,
+                    #toolbar-context-reloadSelectedTabs,
+                    #toolbar-context-bookmarkSelectedTab,
+                    #toolbar-context-bookmarkSelectedTabs,
+                    #toolbar-context-selectAllTabs,
+                    #toolbar-context-undoCloseTab
+                  ):hover
+              )
+              & {
               top: 0;
+            }
+          }
+
+          #nav-bar {
+            margin-left: 0 !important;
+            background-color: var(--bg4) !important;
+            backdrop-filter: blur(15px) !important;
+            border-bottom: 1px solid oklch(52.1% 0 0 / 0.15) !important;
+            &::before {
+              content: "";
+              position: absolute;
+              top: 52px;
               left: 0;
-              right: 0;
-              transition: top 0.25s 0s !important;
-              &:not(:hover) {
-                top: -53px;
-                transition: top 0.25s 0.5s !important;
-              }
-              :root:has(#urlbar[open]) & {
-                top: -95px;
-              }
-              :root:has(
-                  #urlbar[focused],
-                  #urlbar
-                    :is(
-                      .urlbar-page-action[open],
-                      .identity-box-button[open],
-                      #notification-popup-box[open],
-                      #trust-icon-container[open]
-                    ),
-                  toolbarbutton:is(
-                      #unified-extensions-button,
-                      #downloads-button,
-                      #PanelUI-menu-button,
-                      #nav-bar-overflow-button,
-                      #alltabs-button
-                    )[open],
-                  .searchmode-switcher[open],
-                  #placesContext:hover,
-                  #toggle_PersonalToolbar:hover,
-                  #toolbar-context-menu
-                    > menuitem:not(
-                      #toolbar-context-openANewTab,
-                      #toolbar-context-reloadSelectedTab,
-                      #toolbar-context-reloadSelectedTabs,
-                      #toolbar-context-bookmarkSelectedTab,
-                      #toolbar-context-bookmarkSelectedTabs,
-                      #toolbar-context-selectAllTabs,
-                      #toolbar-context-undoCloseTab
-                    ):hover
-                )
-                & {
-                top: 0;
-              }
+              height: 18px;
+              width: 100%;
             }
-@media -moz-pref("gwt.toolbox") {
-:root[sidebar-expand-on-hover] {
-#navigator-toolbox {
-  position: absolute !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  transition: top .25s 0s !important;
-&:not(:hover) {
-  top: -53px;
-  transition: top .25s .5s !important;
-}
-:root:has(#urlbar[open]) & {
-  top: -95px;
-}
-:root:has(#urlbar[focused], #urlbar :is(.urlbar-page-action[open], .identity-box-button[open], #notification-popup-box[open], #trust-icon-container[open]), toolbarbutton:is(#unified-extensions-button, #downloads-button, #PanelUI-menu-button, #nav-bar-overflow-button, #alltabs-button)[open], .searchmode-switcher[open], #placesContext:hover, #toggle_PersonalToolbar:hover, #toolbar-context-menu > menuitem:not(#toolbar-context-openANewTab, #toolbar-context-reloadSelectedTab, #toolbar-context-reloadSelectedTabs, #toolbar-context-bookmarkSelectedTab, #toolbar-context-bookmarkSelectedTabs, #toolbar-context-selectAllTabs, #toolbar-context-undoCloseTab):hover) & {
-  top: 0;
-}
-}
+          }
 
+          &:has(#PersonalToolbar:not([collapsed])) {
+            #navigator-toolbox:not(:hover) {
+              top: -80px;
+            }
             #nav-bar {
-              margin-left: 0 !important;
-              background-color: var(--bg4) !important;
-              backdrop-filter: blur(15px) !important;
-              border-bottom: 1px solid oklch(52.1% 0 0 / 0.15) !important;
+              padding-bottom: 28px !important;
+              height: unset !important;
               &::before {
-                content: "";
-                position: absolute;
-                top: 52px;
-                left: 0;
-                height: 18px;
-                width: 100%;
+                top: 80px;
               }
             }
-
-&:has(#PersonalToolbar:not([collapsed])) {
-#navigator-toolbox:not(:hover) {
-  top: -80px;
-}
-#nav-bar {
-  padding-bottom: 28px !important;
-  height: unset !important;
-&::before {
-  top: 80px;
-}
-}
-#PersonalToolbar {
-  margin-top: -28px !important;
-  transform: none;
-  transition: none !important;
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-  border: none !important;
-  z-index: 9;
-@media -moz-pref("gwt.toolbar") {
-  margin-top: -38px !important;
-toolbarbutton.bookmark-item:not(.subviewbutton) {
-  margin-block: 10px !important;
-}
-}
-}
-}
-.sidebar-browser-stack {
-  padding: 10px !important;
-}
-#tabbrowser-tabs {
-  padding-top: 45px !important;
-}
-}
-}
-}
-}
+            #PersonalToolbar {
+              margin-top: -28px !important;
+              transform: none;
+              transition: none !important;
+              background-color: transparent !important;
+              backdrop-filter: none !important;
+              border: none !important;
+              z-index: 9;
+              @media -moz-pref("gwt.toolbar") {
+                margin-top: -38px !important;
+                toolbarbutton.bookmark-item:not(.subviewbutton) {
+                  margin-block: 10px !important;
+                }
+              }
+            }
+          }
+          .sidebar-browser-stack {
+            padding: 10px !important;
+          }
+          #tabbrowser-tabs {
+            padding-top: 45px !important;
+          }
+        }
+      }
+    }
+  }
 }

@@ -17,7 +17,7 @@
     --bg4: light-dark(oklch(100% 0 0 / 0.25), oklch(100% 0 0 / 0.08));
     --bg5: light-dark(oklch(100% 0 0 / 0.45), oklch(100% 0 0 / 0.15));
     --bg6: light-dark(oklch(100% 0 0 / 0.15), oklch(100% 0 0 / 0.06));
-    --bg7: color-mix(in srgb, var(--bg0), transparent 75%);
+    --bg7: color-mix(in oklch, var(--bg0), transparent 75%);
     --bs1:
       0 5px 15px oklch(0% 0 0 / 0.2), inset 0 0 0 0.5px oklch(0% 0 0 / 0.34),
       0 0 0 0.5px oklch(0% 0 0 / 0.12);
@@ -57,12 +57,12 @@
     --newtab-primary-action-background: var(--color-accent-primary) !important;
     --color-accent-primary: AccentColor !important;
     --color-accent-primary-hover: color-mix(
-      in srgb,
+      in oklch,
       AccentColor 90%,
       oklch(100% 0 0)
     ) !important;
     --color-accent-primary-active: color-mix(
-      in srgb,
+      in oklch,
       AccentColor 90%,
       oklch(0% 0 0)
     ) !important;
@@ -74,29 +74,29 @@
       oklch(91% 0 0 / 0.2)
     ) !important;
     --focus-outline-color: light-dark(
-      color-mix(in srgb, AccentColor 55%, transparent),
-      color-mix(in srgb, AccentColor 45%, oklch(45% 0 0))
+      color-mix(in oklch, AccentColor 55%, transparent),
+      color-mix(in oklch, AccentColor 45%, oklch(45% 0 0))
     ) !important;
     @media -moz-pref("gwt.ac") {
       --color-accent-primary: light-dark(
         var(--bg0),
-        color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
+        color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0))
       ) !important;
       --color-accent-primary-hover: light-dark(
-        color-mix(in srgb, var(--bg0) 90%, oklch(100% 0 0)),
-        color-mix(in srgb, var(--bg0) 80%, oklch(100% 0 0))
+        color-mix(in oklch, var(--bg0) 90%, oklch(100% 0 0)),
+        color-mix(in oklch, var(--bg0) 80%, oklch(100% 0 0))
       ) !important;
       --color-accent-primary-active: light-dark(
-        color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)),
-        color-mix(in srgb, var(--bg0) 80%, oklch(0% 0 0))
+        color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0)),
+        color-mix(in oklch, var(--bg0) 80%, oklch(0% 0 0))
       ) !important;
       --color-accent-primary-selected: light-dark(
         var(--bg0),
-        color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0))
+        color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0))
       ) !important;
       --focus-outline-color: light-dark(
-        color-mix(in srgb, var(--bg0) 55%, transparent),
-        color-mix(in srgb, var(--bg0) 45%, oklch(45% 0 0))
+        color-mix(in oklch, var(--bg0) 55%, transparent),
+        color-mix(in oklch, var(--bg0) 45%, oklch(45% 0 0))
       ) !important;
     }
     @media not -moz-pref("gwt.atbc") {
@@ -166,11 +166,11 @@
         --toolbar-button-background-active: oklch(28.9% 0 0) !important;
         @media -moz-pref("gwt.ac") {
           --toolbar-button-foreground-active: color-mix(
-            in srgb,
+            in oklch,
             var(--bg0) 90%,
             oklch(0% 0 0)
           ) !important;
-          --primary-color: color-mix(in srgb, var(--bg0) 90%, oklch(0% 0 0)) !important;
+          --primary-color: color-mix(in oklch, var(--bg0) 90%, oklch(0% 0 0)) !important;
         }
         @media not -moz-pref("gwt.atbc") {
           --fxview-background-color: oklch(23.8% 0 197) !important;
@@ -522,7 +522,7 @@
       backdrop-filter: blur(15px) !important;
       @media -moz-pref("gwt.ac") {
         --panel-item-background-color: color-mix(
-          in srgb,
+          in oklch,
           var(--bg0) 80%,
           transparent
         );
@@ -548,7 +548,7 @@
         color: oklch(100% 0 0) !important;
         @media -moz-pref("gwt.ac") {
           background-color: color-mix(
-            in srgb,
+            in oklch,
             var(--bg0) 80%,
             transparent
           ) !important;
@@ -590,7 +590,7 @@
         color: oklch(100% 0 0) !important;
         @media -moz-pref("gwt.ac") {
           background-color: color-mix(
-            in srgb,
+            in oklch,
             var(--bg0) 80%,
             transparent
           ) !important;
@@ -840,7 +840,7 @@
         color: oklch(100% 0 0) !important;
         @media -moz-pref("gwt.ac") {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--bg0) 80%,
             transparent
           ) !important;
@@ -1207,7 +1207,7 @@
           }
           &::before {
             transform: translateX(16px);
-            background: white;
+            background: oklch(100% 0 0);
           }
         }
       }

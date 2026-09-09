@@ -194,7 +194,7 @@
     height: 2px; /* Thickness of your line */
     width: 50%; /* Or 100%, adjust as you like */
     margin: auto;
-    background-color: light-dark(black, white); /* Auto adapted color */
+    background-color: light-dark(oklch(0% 0 0), oklch(100% 0 0)); /* Auto adapted color */
     border-radius: 6px; /* Rounded ends */
     transition:
       width 0.15s ease 0.2s,
