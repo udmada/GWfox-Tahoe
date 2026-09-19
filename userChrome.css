@@ -272,12 +272,7 @@
   #tabbrowser-tabbox {
     box-shadow: none !important;
     outline: none !important;
-    :root:not(
-        [inDOMFullscreen],
-        [chromehidden~="toolbar"],
-        [chromehidden~="location"]
-      )
-      & {
+    :root:not([inDOMFullscreen], [popup-window]) & {
       backdrop-filter: blur(0);
     }
   }
@@ -493,7 +488,7 @@
           .toolbarbutton-1:not(
             #new-tab-button,
             #tabs-newtab-button,
-            #alltabs-button
+            #downloads-button
           ) {
           :root:not([customizing]) & {
             display: none;
@@ -703,7 +698,7 @@
       #unified-extensions-button,
       #new-tab-button,
       #tabs-newtab-button,
-      #alltabs-button
+      #downloads-button
     ) {
     background: var(--bg5) !important;
     box-shadow: var(--bs3) !important;
@@ -734,7 +729,7 @@
       #unified-extensions-button,
       #new-tab-button,
       #tabs-newtab-button,
-      #alltabs-button
+      #downloads-button
     ) {
     background: var(--bg5) !important;
     box-shadow: var(--bs3) !important;
@@ -886,8 +881,8 @@
     @media -moz-pref("gwt.oneliner") {
       #new-tab-button,
       #tabs-newtab-button,
-      #nav-bar #alltabs-button,
-      #TabsToolbar #alltabs-button {
+      #nav-bar #downloads-button,
+      #TabsToolbar #downloads-button {
         background: var(--bg5) !important;
         box-shadow: var(--bs3) !important;
         border-radius: 50%;
@@ -896,7 +891,7 @@
         width: 36px !important;
         height: 36px !important;
       }
-      #nav-bar #alltabs-button {
+      #nav-bar #downloads-button {
         margin: 8px 8px 0 8px !important;
         > .toolbarbutton-badge-stack {
           width: 36px !important;
@@ -1059,8 +1054,8 @@
   }
 
   @media -moz-pref("sidebar.verticalTabs") {
-    #nav-bar #alltabs-button,
-    #TabsToolbar #alltabs-button {
+    #nav-bar #downloads-button,
+    #TabsToolbar #downloads-button {
       background: var(--bg5) !important;
       box-shadow: var(--bs3) !important;
       border-radius: 50%;
@@ -1114,7 +1109,7 @@
       }
     }
 
-    :root:not([customizing]) #TabsToolbar #alltabs-button {
+    :root:not([customizing]) #TabsToolbar #downloads-button {
       display: none;
     }
 
@@ -1122,7 +1117,7 @@
       margin-inline-start: 36px !important;
     }
 
-    #nav-bar #alltabs-button {
+    #nav-bar #downloads-button {
       background: var(--bg5) !important;
       box-shadow: var(--bs3) !important;
       border-radius: 50%;
@@ -2889,7 +2884,7 @@
             #unified-extensions-button,
             #tabs-newtab-button,
             #vertical-tabs-newtab-button,
-            #alltabs-button,
+            #downloads-button,
             #sidebar-button
           ) {
             visibility: collapse;
@@ -2901,7 +2896,7 @@
           visibility: collapse;
         }
       }
-      #alltabs-button,
+      #downloads-button,
       #new-tab-button,
       #tabs-newtab-button {
         visibility: visible;
@@ -2911,11 +2906,15 @@
       }
     }
 
-    :root#main-window[chromehidden~="toolbar"] {
+    :root#main-window[popup-window] {
       min-width: unset !important;
 
       .browser-toolbar {
         display: none !important;
+      }
+
+      .dialogStack {
+        margin-top: 10px !important;
       }
     }
   }
@@ -4112,8 +4111,7 @@
                     #unified-extensions-button,
                     #downloads-button,
                     #PanelUI-menu-button,
-                    #nav-bar-overflow-button,
-                    #alltabs-button
+                    #nav-bar-overflow-button
                   )[open],
                 .searchmode-switcher[open],
                 #placesContext:hover,
