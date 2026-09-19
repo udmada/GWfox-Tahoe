@@ -200,6 +200,13 @@
         oklch(23.8% 0 197)
       ) !important;
     }
+    @media -moz-pref("gwt.atbc") {
+      --atbc-tint: color-mix(
+        in oklch,
+        var(--toolbar-background-color) 80%,
+        transparent
+      );
+    }
     @media (prefers-color-scheme: dark) {
       --bg5: linear-gradient(
         to bottom,
@@ -267,7 +274,7 @@
     @media -moz-pref("sidebar.verticalTabs") {
       background-color: transparent !important;
       @media -moz-pref("gwt.atbc") {
-        background-color: var(--toolbar-background-color) !important;
+        background-color: var(--atbc-tint) !important;
       }
     }
   }
