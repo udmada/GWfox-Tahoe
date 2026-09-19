@@ -266,6 +266,9 @@
   :root:not([customizing]) body {
     @media -moz-pref("sidebar.verticalTabs") {
       background-color: transparent !important;
+      @media -moz-pref("gwt.atbc") {
+        background-color: var(--toolbar-background-color) !important;
+      }
     }
   }
 
