@@ -14,10 +14,9 @@
     --bg1: light-dark(oklch(39.4% 0 0 / 0.08), oklch(73.8% 0 0 / 0.08));
     --bg2: light-dark(oklch(39.4% 0 0 / 0.15), oklch(73.8% 0 0 / 0.15));
     --bg3: light-dark(oklch(39.4% 0 0 / 0.2), oklch(73.8% 0 0 / 0.2));
-    --bg4: light-dark(oklch(100% 0 0 / 0.25), oklch(100% 0 0 / 0.08));
+    --bg4: light-dark(oklch(100% 0 0 / 0.55), oklch(41.3% 0 0 / 0.55));
     --bg5: light-dark(oklch(100% 0 0 / 0.45), oklch(100% 0 0 / 0.15));
     --bg6: light-dark(oklch(100% 0 0 / 0.15), oklch(100% 0 0 / 0.06));
-    --bg7: color-mix(in oklch, var(--bg0), transparent 75%);
     --bs1:
       0 5px 15px oklch(0% 0 0 / 0.2), inset 0 0 0 0.5px oklch(0% 0 0 / 0.34),
       0 0 0 0.5px oklch(0% 0 0 / 0.12);
@@ -109,9 +108,6 @@
         oklch(23.8% 0 197)
       ) !important;
     }
-    :-moz-window-inactive {
-      --bg7: color-mix(in oklch, oklch(56.9% 0 0), transparent 75%);
-    }
   }
 
   .toggle-button {
@@ -172,14 +168,7 @@
       oklch(100% 0 0 / 0.55),
       oklch(25.6% 0 0 / 0.55)
     ) !important;
-    backdrop-filter: blur(15px);
-  }
-
-  @media -moz-pref("gwt.ac") {
-    ::selection {
-      background: var(--bg7) !important;
-      color: inherit !important;
-    }
+    backdrop-filter: blur(10px);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -248,7 +237,263 @@
     }
   }
 
-  @-moz-document url-prefix("about:"), regexp("chrome:\/\/(?!devtools).*") {
+  @-moz-document regexp(".*\\.pdf") {
+    #viewsManager {
+      --header-bg: transparent !important;
+    }
+    .horizontalToolbarSeparator {
+      border-top: 1px solid oklch(52.1% 0 0 / 0.2) !important;
+    }
+    .doorHangerRight {
+      &::before,
+      &::after {
+        display: none !important;
+      }
+    }
+    #viewsManager,
+    .doorHangerRight,
+    #editorCommentsSidebar,
+    dialog {
+      border-radius: 12px !important;
+    }
+    #viewsManagerStatusActionButton,
+    .toolbarButton,
+    .toolbarField,
+    #editorCommentsSidebarCloseButton,
+    #documentPropertiesClose,
+    #commentManagerCancelButton,
+    #commentManagerSaveButton,
+    #addSignatureCancelButton,
+    #addSignatureAddButton,
+    #clearSignatureButton {
+      border-radius: 50px !important;
+    }
+    .toolbarButton {
+      background-color: transparent !important;
+      &:not([disabled]) {
+        &:hover {
+          background-color: light-dark(
+            oklch(39.4% 0 0 / 0.1),
+            oklch(73.8% 0 0 / 0.2)
+          ) !important;
+        }
+        &[open],
+        &:hover:active {
+          background-color: light-dark(
+            oklch(39.4% 0 0 / 0.15),
+            oklch(73.8% 0 0 / 0.3)
+          ) !important;
+        }
+      }
+      &.labeled {
+        border-radius: 8px !important;
+      }
+    }
+    .dropdownToolbarButton {
+      clip-path: inset(0 round 50px);
+      background-color: transparent !important;
+      &:hover {
+        background-color: light-dark(
+          oklch(39.4% 0 0 / 0.05),
+          oklch(73.8% 0 0 / 0.1)
+        ) !important;
+      }
+      > select {
+        background-color: light-dark(
+          oklch(39.4% 0 0 / 0.15),
+          oklch(73.8% 0 0 / 0.3)
+        ) !important;
+      }
+    }
+    .toolbarField {
+      border: none !important;
+      background-color: light-dark(
+        oklch(39.4% 0 0 / 0.1),
+        oklch(73.8% 0 0 / 0.2)
+      ) !important;
+    }
+    #editorCommentsSidebar {
+      & #editorCommentsSidebarListContainer {
+        & #editorCommentsSidebarList {
+          & .sidebarComment {
+            background-color: light-dark(
+              oklch(39.4% 0 0 / 0.05),
+              oklch(73.8% 0 0 / 0.2)
+            ) !important;
+            border-color: transparent !important;
+          }
+        }
+      }
+      & #editorCommentsSidebarHeader {
+        & #editorCommentsSidebarCloseButton {
+          &:hover {
+            background-color: light-dark(
+              oklch(39.4% 0 0 / 0.1),
+              oklch(73.8% 0 0 / 0.2)
+            ) !important;
+          }
+          &:active {
+            background-color: light-dark(
+              oklch(39.4% 0 0 / 0.15),
+              oklch(73.8% 0 0 / 0.3)
+            ) !important;
+          }
+        }
+      }
+    }
+    .dialog {
+      & .mainContainer {
+        & textarea,
+        & #addSignatureDescInput,
+        & #addSignatureTypeContainer,
+        & #addSignatureDrawContainer,
+        & #addSignatureImageContainer {
+          background-color: light-dark(
+            oklch(39.4% 0 0 / 0.1),
+            oklch(73.8% 0 0 / 0.5)
+          ) !important;
+          border-radius: 8px !important;
+          border-color: transparent !important;
+        }
+      }
+    }
+    #addSignatureDialog {
+      & .mainContainer {
+        & [role="tablist"] {
+          & > [role="tab"] {
+            border: none !important;
+            background-color: light-dark(
+              oklch(39.4% 0 0 / 0.1),
+              oklch(73.8% 0 0 / 0.5)
+            ) !important;
+            &:hover {
+              background-color: light-dark(
+                oklch(39.4% 0 0 / 0.2),
+                oklch(73.8% 0 0 / 0.3)
+              ) !important;
+            }
+          }
+        }
+      }
+    }
+    .annotationEditorLayer
+      :is(
+        .freeTextEditor,
+        .inkEditor,
+        .stampEditor,
+        .highlightEditor,
+        .signatureEditor
+      ),
+    .textLayer {
+      & .editToolbar {
+        & .buttons {
+          & > :not(.divider) {
+            &:hover {
+              border-radius: 50px !important;
+              background-color: light-dark(
+                oklch(39.4% 0 0 / 0.1),
+                oklch(73.8% 0 0 / 0.2)
+              ) !important;
+              outline: none !important;
+            }
+            &:active {
+              background-color: light-dark(
+                oklch(39.4% 0 0 / 0.15),
+                oklch(73.8% 0 0 / 0.3)
+              ) !important;
+            }
+          }
+        }
+      }
+    }
+    :is(.annotationLayer, .annotationEditorLayer) {
+      & .annotationCommentButton {
+        background-color: var(--bg4) !important;
+        backdrop-filter: blur(10px) !important;
+        &::before {
+          background-color: light-dark(
+            oklch(45% 0 0),
+            oklch(89.8% 0 0)
+          ) !important;
+        }
+        &:hover,
+        &.selected {
+          background-color: var(--comment-button-selected-bg) !important;
+          &::before {
+            background-color: oklch(100% 0 0) !important;
+          }
+        }
+      }
+    }
+    .annotationEditorLayer
+      :is(
+        .freeTextEditor,
+        .inkEditor,
+        .stampEditor,
+        .highlightEditor,
+        .signatureEditor
+      ),
+    .textLayer {
+      & .editToolbar {
+        background-color: var(--bg4) !important;
+        backdrop-filter: blur(10px) !important;
+      }
+    }
+    .pdfViewer,
+    #outerContainer {
+      background-color: light-dark(
+        oklch(84.5% 0 0),
+        oklch(27.7% 0 0)
+      ) !important;
+    }
+    #viewsManager,
+    #toolbarContainer {
+      background-color: light-dark(
+        oklch(100% 0 0),
+        oklch(23.8% 0 197)
+      ) !important;
+      border: none !important;
+    }
+    #editorCommentsSidebar,
+    #secondaryToolbar,
+    .doorHangerRight,
+    dialog,
+    .commentPopup {
+      background-color: var(--bg4) !important;
+    }
+    dialog,
+    .doorHangerRight,
+    #viewsManager,
+    #editorCommentsSidebar {
+      box-shadow:
+        0 5px 15px oklch(0% 0 0 / 0.2),
+        inset 0 0 0 0.5px oklch(0% 0 0 / 0.28),
+        0 0 0 0.5px oklch(0% 0 0 / 0.05) !important;
+      border: none !important;
+      @media (prefers-color-scheme: dark) {
+        box-shadow:
+          0 5px 15px oklch(0% 0 0 / 0.35),
+          inset 0 0 0 1px oklch(100% 0 0 / 0.15),
+          0 0 0 1px oklch(0% 0 0 / 0.5) !important;
+      }
+    }
+    dialog::backdrop {
+      background-color: transparent !important;
+    }
+    #secondaryToolbar,
+    #editorCommentsSidebar,
+    #editorSignatureParamsToolbar,
+    #editorHighlightParamsToolbar,
+    #editorFreeTextParamsToolbar,
+    #editorInkParamsToolbar,
+    #editorStampParamsToolbar,
+    dialog,
+    .commentPopup {
+      backdrop-filter: blur(10px) !important;
+    }
+  }
+
+  @-moz-document url-prefix("about:"), regexp("chrome:\/\/(?!devtools).*"), regexp(".*\\.pdf") {
     input[type="search"] {
       background-color: light-dark(
         oklch(45% 0 0 / 0.1),
@@ -503,7 +748,7 @@
       }
     }
 
-    input:not(.wallpaper-input) {
+    input:not(.wallpaper-input, [type="text"]) {
       padding-inline-end: 10px !important;
       &::-moz-search-clear-button {
         padding: 2px !important;
@@ -579,7 +824,7 @@
       box-shadow: var(--bs1) !important;
       padding: 6px !important;
       background-color: var(--bg4) !important;
-      backdrop-filter: blur(15px) !important;
+      backdrop-filter: blur(10px) !important;
       @media -moz-pref("gwt.ac") {
         --panel-item-background-color: color-mix(
           in oklch,
@@ -702,6 +947,7 @@
     #setting-control-dohAdvancedButton,
     #setting-control-showUpdateHistory,
     #setting-control-addPrimaryPassword,
+    #setting-control-browser-icon-button,
     #setting-control-etpStatusAdvancedButton,
     #setting-control-fxaConnectAnotherDevice {
       --box-border-radius-start: var(--box-border-radius-inner) !important;
@@ -802,7 +1048,7 @@
       background-color: oklch(21.3% 0 0 / 0.55) !important;
       border-radius: 12px !important;
       box-shadow: 0 2px 25px oklch(0% 0 0 / 0.05) !important;
-      backdrop-filter: blur(15px) !important;
+      backdrop-filter: blur(10px) !important;
       outline: none !important;
       border: none !important;
       fill: oklch(100% 0 0 / 0.7) !important;
@@ -1214,7 +1460,7 @@
     .tile,
     .context-menu-button.icon,
     .search-inner-wrapper {
-      backdrop-filter: blur(15px) !important;
+      backdrop-filter: blur(10px) !important;
     }
 
     .modalOverlayOuter,
@@ -1225,7 +1471,7 @@
 
     .customize-menu {
       background-color: var(--bg4) !important;
-      backdrop-filter: blur(15px) !important;
+      backdrop-filter: blur(10px) !important;
       box-shadow: var(--bs1) !important;
       margin: 16px 16px 0 0 !important;
       height: calc(100% - 16px) !important;
@@ -1256,7 +1502,7 @@
         border-radius: 12px !important;
         position: relative !important;
         outline: 1px solid
-          light-dark(oklch(0% 0 0 / 0.18), oklch(100% 0 0 / 0.18)) !important;
+          light-dark(oklch(0% 0 0 / 0.6), oklch(100% 0 0 / 0.18)) !important;
         outline-offset: -1px !important;
         cursor: auto !important;
         order: -1;
@@ -1267,7 +1513,7 @@
           left: 2px;
           width: 12px;
           height: 12px;
-          background: light-dark(oklch(0% 0 0 / 0.18), oklch(100% 0 0 / 0.18));
+          background: light-dark(oklch(0% 0 0 / 0.6), oklch(100% 0 0 / 0.18));
           border-radius: 50%;
         }
         :root:has(body[style*="background"]) & {
@@ -1281,7 +1527,7 @@
           }
           &::before {
             transform: translateX(16px);
-            background: oklch(100% 0 0);
+            background: white;
           }
         }
       }
@@ -1291,13 +1537,17 @@
       }
     }
 
+    .select-wrapper {
+      border-radius: 50px !important;
+    }
+
     .context-menu,
     .contentSearchSuggestionTable,
     .location-input-wrapper,
     .weatherInfoLink,
     .weatherNotAvailable,
     .personalize-button {
-      backdrop-filter: blur(15px) !important;
+      backdrop-filter: blur(10px) !important;
       background-color: var(--bg4) !important;
     }
 
@@ -1424,12 +1674,12 @@
         .modalOverlayOuter,
         .confirmation-dialog,
         panel-list {
-          background-color: oklch(16.8% 0 0 / 0.7) !important;
+          background-color: oklch(41.3% 0 0 / 0.55) !important;
           &:hover {
-            background-color: oklch(16.8% 0 0 / 0.75) !important;
+            background-color: oklch(41.3% 0 0 / 0.6) !important;
           }
           &:active {
-            background-color: oklch(16.8% 0 0 / 0.6) !important;
+            background-color: oklch(41.3% 0 0 / 0.5) !important;
           }
         }
       }
@@ -1454,12 +1704,12 @@
         .modalOverlayOuter,
         .confirmation-dialog,
         panel-list {
-          background-color: oklch(100% 0 0 / 0.7) !important;
+          background-color: oklch(100% 0 0 / 0.55) !important;
           &:hover {
-            background-color: oklch(100% 0 0 / 0.75) !important;
+            background-color: oklch(100% 0 0 / 0.6) !important;
           }
           &:active {
-            background-color: oklch(100% 0 0 / 0.6) !important;
+            background-color: oklch(100% 0 0 / 0.5) !important;
           }
         }
       }
