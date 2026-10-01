@@ -746,7 +746,7 @@
     &:not(:has(+ .toolbaritem-combined-buttons)) .toolbarbutton-1 {
       border-start-end-radius: 50% !important;
       border-end-end-radius: 50% !important;
-      margin-inline-end: 8px !important;
+      margin-inline-end: 0 !important;
       width: 37.5px !important;
       clip-path: inset(-20px -20px -20px 1.5px);
     }
