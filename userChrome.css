@@ -718,6 +718,120 @@
     }
   }
 
+  /* buttons dragged out of the default group form a group of their own */
+  #nav-bar {
+    .toolbarbutton-1:not(
+        #back-button,
+        #forward-button,
+        #stop-button,
+        #reload-button,
+        #PanelUI-menu-button,
+        #nav-bar-overflow-button,
+        #unified-extensions-button,
+        #new-tab-button,
+        #tabs-newtab-button,
+        #downloads-button
+      ):has(~ #unified-extensions-button) {
+      border-radius: 0 !important;
+      margin-inline: -1.5px !important;
+      width: 39px !important;
+      clip-path: inset(-20px 1.5px -20px 1.5px);
+      > .toolbarbutton-icon {
+        width: 29px !important;
+        height: 29px !important;
+        padding: 5.5px !important;
+      }
+      > .toolbarbutton-badge-stack {
+        width: 29px !important;
+        height: 29px !important;
+        padding: 6.5px 5.5px 5.5px 6.5px !important;
+      }
+      &:not(
+        .toolbarbutton-1:not(
+            #back-button,
+            #forward-button,
+            #stop-button,
+            #reload-button,
+            #PanelUI-menu-button,
+            #nav-bar-overflow-button,
+            #unified-extensions-button,
+            #new-tab-button,
+            #tabs-newtab-button,
+            #downloads-button
+          )
+          + *
+      ) {
+        border-start-start-radius: 50% !important;
+        border-end-start-radius: 50% !important;
+        margin-inline-start: 8px !important;
+        width: 37.5px !important;
+        clip-path: inset(-20px 1.5px -20px -20px);
+      }
+      &:not(
+        :has(
+          + .toolbarbutton-1:not(
+              #back-button,
+              #forward-button,
+              #stop-button,
+              #reload-button,
+              #PanelUI-menu-button,
+              #nav-bar-overflow-button,
+              #unified-extensions-button,
+              #new-tab-button,
+              #tabs-newtab-button,
+              #downloads-button
+            )
+        )
+      ) {
+        border-start-end-radius: 50% !important;
+        border-end-end-radius: 50% !important;
+        margin-inline-end: 8px !important;
+        width: 37.5px !important;
+        clip-path: inset(-20px -20px -20px 1.5px);
+      }
+      &:not(
+          .toolbarbutton-1:not(
+              #back-button,
+              #forward-button,
+              #stop-button,
+              #reload-button,
+              #PanelUI-menu-button,
+              #nav-bar-overflow-button,
+              #unified-extensions-button,
+              #new-tab-button,
+              #tabs-newtab-button,
+              #downloads-button
+            )
+            + *
+        ):not(
+          :has(
+            + .toolbarbutton-1:not(
+                #back-button,
+                #forward-button,
+                #stop-button,
+                #reload-button,
+                #PanelUI-menu-button,
+                #nav-bar-overflow-button,
+                #unified-extensions-button,
+                #new-tab-button,
+                #tabs-newtab-button,
+                #downloads-button
+              )
+          )
+        ) {
+        margin-inline: 8px !important;
+        width: 36px !important;
+        clip-path: inset(-20px);
+        > .toolbarbutton-icon,
+        > .toolbarbutton-badge-stack {
+          width: 36px !important;
+          height: 36px !important;
+          padding: 10px !important;
+        }
+      }
+    }
+  }
+
   #TabsToolbar
     .toolbarbutton-1:not(
       #back-button,
