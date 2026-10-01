@@ -1084,6 +1084,18 @@
     }
   }
 
+  @-moz-document url-prefix("http://"), url-prefix("https://"), url-prefix("file://")
+  {
+    @media -moz-pref("gwt.transparent") {
+      :root {
+        background-color: light-dark(
+          oklch(100% 0 0),
+          oklch(23.8% 0 197)
+        ) !important;
+      }
+    }
+  }
+
   @-moz-document url-prefix("about:newtab"), url-prefix("about:home") {
     body {
       --newtab-search-icon: url("chrome://global/skin/icons/search-glass.svg") !important;
@@ -1102,6 +1114,18 @@
             var(--newtab-wallpaper-color, "") 0 250px,
             oklch(23.8% 0 197) 0 500px
           ) !important;
+      }
+    }
+
+    @media -moz-pref("gwt.transparent") {
+      :root,
+      body,
+      #root,
+      .outer-wrapper {
+        --newtab-background-color: transparent !important;
+        --in-content-page-background: transparent !important;
+        background-color: transparent !important;
+        background-image: none !important;
       }
     }
 
