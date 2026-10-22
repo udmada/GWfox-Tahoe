@@ -332,9 +332,11 @@
   }
 
   #browser {
-    --sidebar-launcher-collapsed-width: 1px !important;
-    :root[sidebar-expand-on-hover] & {
-      margin-inline-start: -1px !important;
+    @media not -moz-pref("gwt.vertical-tabs-icons") {
+      --sidebar-launcher-collapsed-width: 1px !important;
+      :root[sidebar-expand-on-hover] & {
+        margin-inline-start: -1px !important;
+      }
     }
   }
 
@@ -618,21 +620,28 @@
   /* button */
 
   .toggle-button {
-    --toggle-dot-background-color-on-pressed: oklch(100% 0 0) !important;
+    --toggle-dot-background-color-on-pressed: #fff !important;
   }
   #blocked-permissions-container,
   #picture-in-picture-button,
   .private-browsing-indicator-with-label,
+  .sharing-icon,
   #reset-pbm-toolbar-button,
   #wrapper-firefox-view-button,
   #firefox-view-button,
-  #fxa-toolbar-menu-button,
+  #vertical-spacer,
   #userContext-icons,
   #userContext-label,
-  .sharing-icon,
-  #vertical-spacer,
   .popup-notification-closebutton {
     display: none !important;
+  }
+
+  #fxa-toolbar-menu-button {
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none;
   }
 
   #scrollbutton-up,
@@ -1205,6 +1214,7 @@
         ) !important;
         margin-inline: calc(-1 * var(--urlbar-margin-inline)) !important;
         margin-top: 6px !important;
+        padding: 5px 10px !important;
         border-radius: 20px !important;
         background-color: var(--bg4) !important;
         backdrop-filter: blur(10px) !important;
@@ -1235,7 +1245,7 @@
         display: block !important;
       }
       .urlbarView-press-tab-label {
-        color: light-dark(oklch(0% 0 0), oklch(100% 0 0)) !important;
+        color: light-dark(#000, #fff) !important;
       }
     }
     &:has(#identity-box[pageproxystate="valid"].extensionPage) {
@@ -1263,7 +1273,7 @@
             mask-image: linear-gradient(
               to left,
               transparent,
-              oklch(100% 0 0) 15ch
+              #fff 15ch
             ) !important;
           }
         }
@@ -1320,11 +1330,7 @@
         min-width: 150% !important;
       }
       .urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
-        mask-image: linear-gradient(
-          to left,
-          transparent,
-          oklch(100% 0 0) 15ch
-        ) !important;
+        mask-image: linear-gradient(to left, transparent, #fff 15ch) !important;
         #urlbar:is(:hover, [focused], [open]) & {
           mask-image: none !important;
         }
@@ -1388,8 +1394,8 @@
     border: none !important;
   }
 
-  .urlbarView-body-inner {
-    #urlbar[open] > .urlbarView > .urlbarView-body-outer > & {
+  .urlbarView-results {
+    #urlbar[open] > .urlbarView > & {
       border-top: none !important;
     }
   }
@@ -1563,11 +1569,17 @@
       #tabbrowser-tabs[expanded] & {
         border-radius: 8px !important;
       }
+      @media -moz-pref("gwt.vertical-tabs-icons") {
+        /* Keep the same radius through the collapsed-to-expanded width change. */
+        #tabbrowser-tabs[orient="vertical"] & {
+          border-radius: 999px !important;
+        }
+      }
     }
     #tabbrowser-tabs[movingtab-group] & {
       &[dragover-groupTarget] {
         background-color: color-mix(
-          in oklch,
+          in srgb,
           var(--dragover-tab-group-color) 38%,
           transparent
         ) !important;
@@ -1581,32 +1593,32 @@
       .tabbrowser-tab & {
         tab-group:not([collapsed]) > tab > .tab-stack > & {
           background-color: color-mix(
-            in oklch,
+            in srgb,
             var(--tab-group-color) 21%,
             transparent
           ) !important;
           &[multiselected] {
             background: color-mix(
-              in oklch,
+              in srgb,
               var(--bg1) 26%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in oklch,
+                in srgb,
                 var(--bg0) 26%,
                 transparent
               ) !important;
             }
             &[selected] {
               background: color-mix(
-                in oklch,
+                in srgb,
                 var(--bg1) 36%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in oklch,
+                  in srgb,
                   var(--bg0) 36%,
                   transparent
                 ) !important;
@@ -1615,32 +1627,32 @@
           }
           tab:not([selected]):hover & {
             background-color: color-mix(
-              in oklch,
+              in srgb,
               var(--tab-group-color) 36%,
               transparent
             ) !important;
             &[multiselected] {
               background: color-mix(
-                in oklch,
+                in srgb,
                 var(--bg1) 26%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in oklch,
+                  in srgb,
                   var(--bg0) 26%,
                   transparent
                 ) !important;
               }
               &[selected] {
                 background: color-mix(
-                  in oklch,
+                  in srgb,
                   var(--bg1) 36%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in oklch,
+                    in srgb,
                     var(--bg0) 36%,
                     transparent
                   ) !important;
@@ -1660,20 +1672,20 @@
           max-height: 28px !important;
           min-height: 28px !important;
           &[selected] {
-            background: oklch(100% 0 0 / 0.8) !important;
+            background: rgba(255, 255, 255, 0.8) !important;
             box-shadow: var(--bs5) !important;
             @media (prefers-color-scheme: dark) {
               background: var(--bg5) !important;
             }
             &[multiselected] {
               background: color-mix(
-                in oklch,
+                in srgb,
                 var(--bg1) 36%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in oklch,
+                  in srgb,
                   var(--bg0) 36%,
                   transparent
                 ) !important;
@@ -1681,13 +1693,13 @@
             }
             tab-split-view-wrapper & {
               background: color-mix(
-                in oklch,
+                in srgb,
                 var(--bg1) 36%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in oklch,
+                  in srgb,
                   var(--bg0) 36%,
                   transparent
                 ) !important;
@@ -1706,13 +1718,13 @@
           }
           tab-split-view-wrapper & {
             background: color-mix(
-              in oklch,
+              in srgb,
               var(--bg1) 26%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in oklch,
+                in srgb,
                 var(--bg0) 26%,
                 transparent
               ) !important;
@@ -1724,26 +1736,26 @@
             :not(:hover) & {
               &[multiselected] {
                 background: color-mix(
-                  in oklch,
+                  in srgb,
                   var(--bg1) 26%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in oklch,
+                    in srgb,
                     var(--bg0) 26%,
                     transparent
                   ) !important;
                 }
                 &[selected] {
                   background: color-mix(
-                    in oklch,
+                    in srgb,
                     var(--bg1) 36%,
                     transparent
                   ) !important;
                   @media -moz-pref("gwt.ac") {
                     background: color-mix(
-                      in oklch,
+                      in srgb,
                       var(--bg0) 36%,
                       transparent
                     ) !important;
@@ -1752,13 +1764,13 @@
               }
               tab-group > tab-split-view-wrapper & {
                 background-color: color-mix(
-                  in oklch,
+                  in srgb,
                   var(--tab-group-color) 14%,
                   transparent
                 ) !important;
                 &[selected] {
                   background-color: color-mix(
-                    in oklch,
+                    in srgb,
                     var(--tab-group-color) 24%,
                     transparent
                   ) !important;
@@ -1767,7 +1779,7 @@
               #tabbrowser-tabs[movingtab-group] & {
                 &[dragover-groupTarget] {
                   background-color: color-mix(
-                    in oklch,
+                    in srgb,
                     var(--dragover-tab-group-color) 38%,
                     transparent
                   ) !important;
@@ -1775,13 +1787,13 @@
               }
               tab-split-view-wrapper & {
                 background: color-mix(
-                  in oklch,
+                  in srgb,
                   var(--bg1) 26%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in oklch,
+                    in srgb,
                     var(--bg0) 26%,
                     transparent
                   ) !important;
@@ -1793,13 +1805,13 @@
               box-shadow: var(--bs3) !important;
               &[multiselected] {
                 background: color-mix(
-                  in oklch,
+                  in srgb,
                   var(--bg1) 36%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in oklch,
+                    in srgb,
                     var(--bg0) 36%,
                     transparent
                   ) !important;
@@ -1807,13 +1819,13 @@
               }
               tab-split-view-wrapper & {
                 background: color-mix(
-                  in oklch,
+                  in srgb,
                   var(--bg1) 36%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in oklch,
+                    in srgb,
                     var(--bg0) 36%,
                     transparent
                   ) !important;
@@ -1835,13 +1847,13 @@
           background: var(--bg2-active) !important;
           &[multiselected] {
             background: color-mix(
-              in oklch,
+              in srgb,
               var(--bg1) 36%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in oklch,
+                in srgb,
                 var(--bg0) 36%,
                 transparent
               ) !important;
@@ -1849,13 +1861,13 @@
           }
           tab-split-view-wrapper & {
             background: color-mix(
-              in oklch,
+              in srgb,
               var(--bg1) 36%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in oklch,
+                in srgb,
                 var(--bg0) 36%,
                 transparent
               ) !important;
@@ -1864,13 +1876,13 @@
         }
         tab-split-view-wrapper & {
           background: color-mix(
-            in oklch,
+            in srgb,
             var(--bg1) 26%,
             transparent
           ) !important;
           @media -moz-pref("gwt.ac") {
             background: color-mix(
-              in oklch,
+              in srgb,
               var(--bg0) 26%,
               transparent
             ) !important;
@@ -1885,17 +1897,17 @@
           > .tab-stack
           > & {
           background: color-mix(
-            in oklch,
+            in srgb,
             var(--tab-group-color) 24%,
             transparent
           ) !important;
         }
       }
       &[multiselected] {
-        background: color-mix(in oklch, var(--bg1) 26%, transparent) !important;
+        background: color-mix(in srgb, var(--bg1) 26%, transparent) !important;
         @media -moz-pref("gwt.ac") {
           background: color-mix(
-            in oklch,
+            in srgb,
             var(--bg0) 26%,
             transparent
           ) !important;
@@ -3793,7 +3805,9 @@
     #sidebar-container {
       -moz-window-dragging: drag;
       @media (min-width: 610px) and (max-width: 866px) {
-        visibility: collapse;
+        @media not -moz-pref("gwt.vertical-tabs-icons") {
+          visibility: collapse;
+        }
       }
     }
 
@@ -3970,6 +3984,10 @@
       #vertical-tabs-newtab-button {
         font-size: 13px !important;
         border-radius: 8px !important;
+        @media -moz-pref("gwt.vertical-tabs-icons") {
+          /* Keep the pill shape in both expanded and collapsed states. */
+          border-radius: 999px !important;
+        }
         > .toolbarbutton-text {
           display: none;
         }
@@ -4073,11 +4091,14 @@
 
       :root:has(#tabbrowser-tabs:not([expanded])) {
         #sidebar-container {
-          visibility: collapse;
-          max-width: 25px !important;
-          @media -moz-pref("sidebar.visibility", "expand-on-hover") {
-            visibility: visible;
-            margin-inline-end: -24px !important;
+          /* Keep Firefox's native icon rail when enabled, including hover expansion. */
+          @media not -moz-pref("gwt.vertical-tabs-icons") {
+            visibility: collapse;
+            max-width: 25px !important;
+            @media -moz-pref("sidebar.visibility", "expand-on-hover") {
+              visibility: visible;
+              margin-inline-end: -24px !important;
+            }
           }
           #sidebar-box {
             margin-inline-start: 8px !important;
@@ -4128,7 +4149,9 @@
 
         #tabs-newtab-button,
         #vertical-tabs-newtab-button {
-          border-radius: 50px !important;
+          @media not -moz-pref("gwt.vertical-tabs-icons") {
+            border-radius: 50px !important;
+          }
         }
 
         tab-split-view-wrapper {
@@ -4254,5 +4277,52 @@
         }
       }
     }
+  }
+}
+
+/* Reserve the icon rail width over a toolbar-colored backing surface.
+   Keep the same glass surface in collapsed, expanded, and animating states. */
+@media (-moz-mac-tahoe-theme) and -moz-pref("sidebar.revamp") and -moz-pref("sidebar.verticalTabs") and -moz-pref("gwt.vertical-tabs-icons") {
+  :root[sidebar-expand-on-hover]
+    #browser:not(:has(#tabbrowser-tabbox[sidebar-panel-open])) {
+    background: var(--toolbar-background-color) !important;
+
+    #sidebar-container {
+      margin-top: 0 !important;
+      background-image: none !important;
+      background-color: var(--bg4) !important;
+      backdrop-filter: blur(10px);
+    }
+  }
+}
+
+/* Keep closing separate from the favicon target in the optional icon rail. */
+@media (-moz-mac-tahoe-theme) and -moz-pref("sidebar.verticalTabs") and -moz-pref("gwt.vertical-tabs-icons") {
+  #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-close-button {
+    order: 99 !important;
+    position: static !important;
+    inset: auto !important;
+    margin-inline: auto 0 !important;
+    flex-shrink: 0;
+  }
+
+  #tabbrowser-tabs[orient="vertical"]
+    .tabbrowser-tab:not([pinned]):hover
+    .tab-icon-image {
+    visibility: visible !important;
+  }
+
+  #tabbrowser-tabs[orient="vertical"]:not([expanded])
+    .tabbrowser-tab
+    .tab-close-button,
+  :root[sidebar-expand-on-hover]
+    #sidebar-container:not([sidebar-launcher-expanded])
+    .tab-close-button,
+  :root[sidebar-expand-on-hover]
+    #sidebar-container[sidebar-ongoing-animations]
+    .tab-close-button {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
 }
