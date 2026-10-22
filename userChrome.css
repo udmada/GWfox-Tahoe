@@ -620,7 +620,7 @@
   /* button */
 
   .toggle-button {
-    --toggle-dot-background-color-on-pressed: #fff !important;
+    --toggle-dot-background-color-on-pressed: oklch(100% 0 0) !important;
   }
   #blocked-permissions-container,
   #picture-in-picture-button,
@@ -1245,7 +1245,7 @@
         display: block !important;
       }
       .urlbarView-press-tab-label {
-        color: light-dark(#000, #fff) !important;
+        color: light-dark(oklch(0% 0 0), oklch(100% 0 0)) !important;
       }
     }
     &:has(#identity-box[pageproxystate="valid"].extensionPage) {
@@ -1273,7 +1273,7 @@
             mask-image: linear-gradient(
               to left,
               transparent,
-              #fff 15ch
+              oklch(100% 0 0) 15ch
             ) !important;
           }
         }
@@ -1330,7 +1330,7 @@
         min-width: 150% !important;
       }
       .urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
-        mask-image: linear-gradient(to left, transparent, #fff 15ch) !important;
+        mask-image: linear-gradient(to left, transparent, oklch(100% 0 0) 15ch) !important;
         #urlbar:is(:hover, [focused], [open]) & {
           mask-image: none !important;
         }
@@ -1672,7 +1672,7 @@
           max-height: 28px !important;
           min-height: 28px !important;
           &[selected] {
-            background: rgba(255, 255, 255, 0.8) !important;
+            background: oklch(100% 0 0 / 0.8) !important;
             box-shadow: var(--bs5) !important;
             @media (prefers-color-scheme: dark) {
               background: var(--bg5) !important;

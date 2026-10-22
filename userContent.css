@@ -165,8 +165,8 @@
   #buttons-container {
     border-radius: 20px !important;
     background-color: light-dark(
-      rgba(255, 255, 255, 0.55),
-      rgba(35, 35, 35, 0.55)
+      oklch(100% 0 0 / 0.55),
+      oklch(25.6% 0 0 / 0.55)
     ) !important;
     backdrop-filter: blur(10px);
   }
@@ -174,15 +174,15 @@
   panel-list {
     --panel-item-border-radius: 8px;
     --panel-item-background-color: -moz-menuhover;
-    --panel-item-color: #fff;
+    --panel-item-color: oklch(100% 0 0);
     --button-background-color-menu-hover: -moz-menuhover !important;
     --button-background-color-menu-active: color-mix(
       in srgb,
       -moz-menuhover 90%,
-      #000
+      oklch(0% 0 0)
     ) !important;
-    --button-text-color-menu-hover: #fff !important;
-    --button-text-color-menu-active: #fff !important;
+    --button-text-color-menu-hover: oklch(100% 0 0) !important;
+    --button-text-color-menu-active: oklch(100% 0 0) !important;
     border: none !important;
     border-radius: 12px !important;
     box-shadow: var(--bs1) !important;
@@ -208,7 +208,7 @@
     }
     @media (prefers-color-scheme: dark) {
       box-shadow: var(--bs2) !important;
-      outline: 1px solid rgba(235, 235, 235, 0.2) !important;
+      outline: 1px solid oklch(94% 0 0 / 0.2) !important;
       outline-offset: -1.5px !important;
     }
   }
@@ -855,7 +855,7 @@
 
   @-moz-document url-prefix("about:buildconfig"), url-prefix("about:cache"), url-prefix("about:support") {
     th {
-      color: #fff !important;
+      color: oklch(100% 0 0) !important;
       border: none !important;
     }
     td {
@@ -952,7 +952,7 @@
       --box-group-border: none !important;
       --promo-background-color: var(--bg1) !important;
       @media not -moz-pref("gwt.atbc") {
-        --background-color-canvas: light-dark(#fff, #1e1f1f) !important;
+        --background-color-canvas: light-dark(oklch(100% 0 0), oklch(23.8% 0 197)) !important;
       }
     }
     #setting-control-noFxaSignIn,
@@ -1453,8 +1453,8 @@
 
     .edit-topsites-wrapper .top-site-inner > .top-site-button > .tile {
       background-color: light-dark(
-        rgba(70, 70, 70, 0.1),
-        rgba(170, 170, 170, 0.2)
+        oklch(39.4% 0 0 / 0.1),
+        oklch(73.8% 0 0 / 0.2)
       ) !important;
       box-shadow: none !important;
       backdrop-filter: none !important;
@@ -1721,21 +1721,21 @@
         .modalOverlayOuter,
         .confirmation-dialog,
         panel-list {
-          background-color: rgba(75, 75, 75, 0.55) !important;
+          background-color: oklch(41.3% 0 0 / 0.55) !important;
           &:hover {
-            background-color: rgba(75, 75, 75, 0.6) !important;
+            background-color: oklch(41.3% 0 0 / 0.6) !important;
           }
           &:active {
-            background-color: rgba(75, 75, 75, 0.5) !important;
+            background-color: oklch(41.3% 0 0 / 0.5) !important;
           }
         }
         .fields-and-preview .top-site-outer .title .title-label {
-          color: #fff !important;
+          color: oklch(100% 0 0) !important;
         }
       }
       .context-menu-button,
       .icon.icon-pin-small {
-        fill: #fff !important;
+        fill: oklch(100% 0 0) !important;
       }
     }
 
@@ -1754,21 +1754,21 @@
         .modalOverlayOuter,
         .confirmation-dialog,
         panel-list {
-          background-color: rgba(255, 255, 255, 0.55) !important;
+          background-color: oklch(100% 0 0 / 0.55) !important;
           &:hover {
-            background-color: rgba(255, 255, 255, 0.6) !important;
+            background-color: oklch(100% 0 0 / 0.6) !important;
           }
           &:active {
-            background-color: rgba(255, 255, 255, 0.5) !important;
+            background-color: oklch(100% 0 0 / 0.5) !important;
           }
         }
         .fields-and-preview .top-site-outer .title .title-label {
-          color: #000 !important;
+          color: oklch(0% 0 0) !important;
         }
       }
       .context-menu-button,
       .icon.icon-pin-small {
-        fill: #000 !important;
+        fill: oklch(0% 0 0) !important;
       }
     }
   }
