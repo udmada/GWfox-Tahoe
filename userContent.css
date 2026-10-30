@@ -177,7 +177,7 @@
     --panel-item-color: oklch(100% 0 0);
     --button-background-color-menu-hover: -moz-menuhover !important;
     --button-background-color-menu-active: color-mix(
-      in srgb,
+      in oklch,
       -moz-menuhover 90%,
       oklch(0% 0 0)
     ) !important;
@@ -191,17 +191,17 @@
     backdrop-filter: blur(10px) !important;
     @media -moz-pref("gwt.ac") {
       --panel-item-background-color: color-mix(
-        in srgb,
+        in oklch,
         var(--bg0) 80%,
         transparent
       );
       --button-background-color-menu-hover: color-mix(
-        in srgb,
+        in oklch,
         var(--bg0) 80%,
         transparent
       ) !important;
       --button-background-color-menu-active: color-mix(
-        in srgb,
+        in oklch,
         var(--bg0) 90%,
         transparent
       ) !important;
@@ -952,7 +952,10 @@
       --box-group-border: none !important;
       --promo-background-color: var(--bg1) !important;
       @media not -moz-pref("gwt.atbc") {
-        --background-color-canvas: light-dark(oklch(100% 0 0), oklch(23.8% 0 197)) !important;
+        --background-color-canvas: light-dark(
+          oklch(100% 0 0),
+          oklch(23.8% 0 197)
+        ) !important;
       }
     }
     #setting-control-noFxaSignIn,
@@ -1594,7 +1597,7 @@
           }
           &::before {
             transform: translateX(16px);
-            background: white;
+            background: oklch(100% 0 0);
           }
         }
       }

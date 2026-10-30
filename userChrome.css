@@ -1336,7 +1336,11 @@
         min-width: 150% !important;
       }
       .urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
-        mask-image: linear-gradient(to left, transparent, oklch(100% 0 0) 15ch) !important;
+        mask-image: linear-gradient(
+          to left,
+          transparent,
+          oklch(100% 0 0) 15ch
+        ) !important;
         #urlbar:is(:hover, [focused], [open]) & {
           mask-image: none !important;
         }
@@ -1585,7 +1589,7 @@
     #tabbrowser-tabs[movingtab-group] & {
       &[dragover-groupTarget] {
         background-color: color-mix(
-          in srgb,
+          in oklch,
           var(--dragover-tab-group-color) 38%,
           transparent
         ) !important;
@@ -1599,32 +1603,32 @@
       .tabbrowser-tab & {
         tab-group:not([collapsed]) > tab > .tab-stack > & {
           background-color: color-mix(
-            in srgb,
+            in oklch,
             var(--tab-group-color) 21%,
             transparent
           ) !important;
           &[multiselected] {
             background: color-mix(
-              in srgb,
+              in oklch,
               var(--bg1) 26%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg0) 26%,
                 transparent
               ) !important;
             }
             &[selected] {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg1) 36%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg0) 36%,
                   transparent
                 ) !important;
@@ -1633,32 +1637,32 @@
           }
           tab:not([selected]):hover & {
             background-color: color-mix(
-              in srgb,
+              in oklch,
               var(--tab-group-color) 36%,
               transparent
             ) !important;
             &[multiselected] {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg1) 26%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg0) 26%,
                   transparent
                 ) !important;
               }
               &[selected] {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg1) 36%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg0) 36%,
                     transparent
                   ) !important;
@@ -1685,13 +1689,13 @@
             }
             &[multiselected] {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg1) 36%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg0) 36%,
                   transparent
                 ) !important;
@@ -1699,13 +1703,13 @@
             }
             tab-split-view-wrapper & {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg1) 36%,
                 transparent
               ) !important;
               @media -moz-pref("gwt.ac") {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg0) 36%,
                   transparent
                 ) !important;
@@ -1724,13 +1728,13 @@
           }
           tab-split-view-wrapper & {
             background: color-mix(
-              in srgb,
+              in oklch,
               var(--bg1) 26%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg0) 26%,
                 transparent
               ) !important;
@@ -1742,26 +1746,26 @@
             :not(:hover) & {
               &[multiselected] {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg1) 26%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg0) 26%,
                     transparent
                   ) !important;
                 }
                 &[selected] {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg1) 36%,
                     transparent
                   ) !important;
                   @media -moz-pref("gwt.ac") {
                     background: color-mix(
-                      in srgb,
+                      in oklch,
                       var(--bg0) 36%,
                       transparent
                     ) !important;
@@ -1770,13 +1774,13 @@
               }
               tab-group > tab-split-view-wrapper & {
                 background-color: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--tab-group-color) 14%,
                   transparent
                 ) !important;
                 &[selected] {
                   background-color: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--tab-group-color) 24%,
                     transparent
                   ) !important;
@@ -1785,7 +1789,7 @@
               #tabbrowser-tabs[movingtab-group] & {
                 &[dragover-groupTarget] {
                   background-color: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--dragover-tab-group-color) 38%,
                     transparent
                   ) !important;
@@ -1793,13 +1797,13 @@
               }
               tab-split-view-wrapper & {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg1) 26%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg0) 26%,
                     transparent
                   ) !important;
@@ -1811,13 +1815,13 @@
               box-shadow: var(--bs3) !important;
               &[multiselected] {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg1) 36%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg0) 36%,
                     transparent
                   ) !important;
@@ -1825,13 +1829,13 @@
               }
               tab-split-view-wrapper & {
                 background: color-mix(
-                  in srgb,
+                  in oklch,
                   var(--bg1) 36%,
                   transparent
                 ) !important;
                 @media -moz-pref("gwt.ac") {
                   background: color-mix(
-                    in srgb,
+                    in oklch,
                     var(--bg0) 36%,
                     transparent
                   ) !important;
@@ -1853,13 +1857,13 @@
           background: var(--bg2-active) !important;
           &[multiselected] {
             background: color-mix(
-              in srgb,
+              in oklch,
               var(--bg1) 36%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg0) 36%,
                 transparent
               ) !important;
@@ -1867,13 +1871,13 @@
           }
           tab-split-view-wrapper & {
             background: color-mix(
-              in srgb,
+              in oklch,
               var(--bg1) 36%,
               transparent
             ) !important;
             @media -moz-pref("gwt.ac") {
               background: color-mix(
-                in srgb,
+                in oklch,
                 var(--bg0) 36%,
                 transparent
               ) !important;
@@ -1882,13 +1886,13 @@
         }
         tab-split-view-wrapper & {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--bg1) 26%,
             transparent
           ) !important;
           @media -moz-pref("gwt.ac") {
             background: color-mix(
-              in srgb,
+              in oklch,
               var(--bg0) 26%,
               transparent
             ) !important;
@@ -1903,17 +1907,17 @@
           > .tab-stack
           > & {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--tab-group-color) 24%,
             transparent
           ) !important;
         }
       }
       &[multiselected] {
-        background: color-mix(in srgb, var(--bg1) 26%, transparent) !important;
+        background: color-mix(in oklch, var(--bg1) 26%, transparent) !important;
         @media -moz-pref("gwt.ac") {
           background: color-mix(
-            in srgb,
+            in oklch,
             var(--bg0) 26%,
             transparent
           ) !important;
