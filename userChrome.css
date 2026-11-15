@@ -847,9 +847,10 @@
 
   /* extensions dragged out of the default group form a group of their own */
   #nav-bar .toolbaritem-combined-buttons:has(~ #unified-extensions-button) {
+    margin-inline: 0 !important;
     .toolbarbutton-1 {
       border-radius: 0 !important;
-      margin-inline: -3.5px !important;
+      margin-inline: -1.5px !important;
       width: 39px !important;
       clip-path: inset(-20px 1.5px -20px 1.5px);
       > .toolbarbutton-icon {
@@ -1128,8 +1129,14 @@
         padding: 6.5px 5.5px 5.5px 6.5px !important;
       }
     }
-    ~ .toolbaritem-combined-buttons .toolbarbutton-1 {
-      margin-inline: -3.5px !important;
+    /* Firefox gives the extension wrapper a rem-based margin-inline
+       (--space-xxsmall: 0.125rem); the theme's -3.5px assumed it was
+       exactly 2px. When it is not, neighbouring clipped backgrounds
+       overlap and the translucent --bg5 paints twice, drawing a bright
+       seam. Zero the wrapper so the shared -1.5px cancels the 1.5px clip
+       inset exactly, as it already does for unwrapped buttons. */
+    ~ .toolbaritem-combined-buttons {
+      margin-inline: 0 !important;
     }
     ~ #stop-reload-button {
       border-radius: 0 !important;
