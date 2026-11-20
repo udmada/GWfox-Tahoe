@@ -100,6 +100,7 @@
       oklch(81.7% 0 0 / 0.2)
     ) !important;
     --in-content-box-border-color: transparent !important;
+    --chrome-content-separator-color: transparent !important;
     --sidebar-background-color: transparent !important;
     --sidebar-border-color: transparent !important;
     --sidebar-box-border: transparent !important;
@@ -427,6 +428,11 @@
         }
         :root:has(#sidebar-box:not([hidden])) & {
           border-start-start-radius: 12px !important;
+          @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
+            :root:has(#tabbrowser-tabs[orient="vertical"]:not([expanded])) & {
+              border-start-start-radius: 0 !important;
+            }
+          }
         }
         @media not -moz-pref("sidebar.verticalTabs") {
           :root:has(#sidebar-container:not([hidden])) & {
@@ -542,22 +548,42 @@
     }
   }
 
-  @media (min-width: 610px) and (max-width: 866px) {
-    #nav-bar,
-    #TabsToolbar {
-      .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button),
-      #stop-reload-button {
-        display: none !important;
-      }
-      #PanelUI-menu-button {
-        border-radius: 50% !important;
-        width: 36px !important;
-        height: 36px !important;
-        clip-path: inset(-20px);
-        > .toolbarbutton-badge-stack {
-          padding: 9px !important;
+  :root:not([mini-window]) {
+    @media (min-width: 610px) and (max-width: 866px) {
+      #nav-bar,
+      #TabsToolbar {
+        .toolbarbutton-1:not(
+          #back-button,
+          #forward-button,
+          #PanelUI-menu-button
+        ),
+        #stop-reload-button {
+          display: none !important;
+        }
+        #PanelUI-menu-button {
+          border-radius: 50% !important;
+          width: 36px !important;
+          height: 36px !important;
+          clip-path: inset(-20px);
+          > .toolbarbutton-badge-stack {
+            padding: 9px !important;
+          }
         }
       }
+    }
+  }
+
+  :root[mini-window] {
+    #nav-bar {
+      padding-left: 0 !important;
+    }
+    #stop-button,
+    #reload-button {
+      margin-inline-start: -1px !important;
+    }
+    #new-tab-button,
+    #tabs-newtab-button {
+      display: none;
     }
   }
 
@@ -596,109 +622,116 @@
     }
   }
 
-  @media -moz-pref("gwt.oneliner") {
-    @media not -moz-pref("sidebar.verticalTabs") {
-      #trust-label,
-      #identity-icon-label,
-      .titlebar-spacer,
-      #nav-bar:not([customizing]) toolbarspring {
-        visibility: collapse;
-      }
-      #navigator-toolbox {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-      }
-      #nav-bar {
-        order: -1;
-        flex: auto;
-        z-index: 9 !important;
-        :root[customizing]:not([inFullscreen]):has(
-            #tabbrowser-tabs:not([expanded])
-          )
-          & {
-          padding-left: 86px !important;
+  :root:not([mini-window]) {
+    @media -moz-pref("gwt.oneliner") {
+      @media not -moz-pref("sidebar.verticalTabs") {
+        #trust-label,
+        #identity-icon-label,
+        .titlebar-spacer,
+        #nav-bar:not([customizing]) toolbarspring {
+          visibility: collapse;
         }
-      }
-      #urlbar-container {
-        anchor-name: --urlbar;
-        margin-inline-start: 4px !important;
-        margin-inline-end: auto !important;
-        transition: max-width 0.25s 0.5s !important;
-        max-width: 36px !important;
-        #urlbar {
-          background-image: url("chrome://global/skin/icons/search-glass.svg");
-          background-repeat: no-repeat;
-          background-position: left 10px bottom 10px;
-          -moz-context-properties: fill, fill-opacity;
-          fill: light-dark(oklch(0% 0 0), oklch(100% 0 0));
-          transition: fill 0.25s 0.5s !important;
-          &:-moz-window-inactive {
-            fill-opacity: 0.48;
-          }
-          .urlbar-page-action,
-          .identity-box-button,
-          #notification-popup-box,
-          #identity-permission-box,
-          #trust-icon-container,
-          #identity-box,
-          .urlbar-go-button,
-          #urlbar-revert-button-container,
-          .searchmode-switcher {
-            opacity: 0 !important;
-            transition: opacity 0.25s 0.5s !important;
+        #navigator-toolbox {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+        }
+        #nav-bar {
+          order: -1;
+          flex: auto;
+          z-index: 9 !important;
+          :root[customizing]:not([inFullscreen]):has(
+              #tabbrowser-tabs:not([expanded])
+            )
+            & {
+            padding-left: 86px !important;
           }
         }
-        &:has(
-          #urlbar:is(:hover, [focused], [open]),
-          .urlbar-page-action[open],
-          .identity-box-button[open],
-          #notification-popup-box[open],
-          #trust-icon-container[open]
-        ) {
-          max-width: 315px !important;
-          transition: max-width 0.25s 0s !important;
+        #urlbar-container {
+          anchor-name: --urlbar;
+          margin-inline-start: 4px !important;
+          margin-inline-end: auto !important;
+          transition: max-width 0.25s 0.5s !important;
+          max-width: 36px !important;
           #urlbar {
-            fill: transparent;
-            transition: fill 0.25s 0s !important;
-            .urlbar-page-action,
-            .urlbar-go-button,
-            #urlbar-revert-button-container,
-            .searchmode-switcher {
-              opacity: 1 !important;
-              transition: opacity 0.25s 0s !important;
+            background-image: url("chrome://global/skin/icons/search-glass.svg");
+            background-repeat: no-repeat;
+            background-position: left 10px bottom 10px;
+            -moz-context-properties: fill, fill-opacity;
+            fill: light-dark(oklch(0% 0 0), oklch(100% 0 0));
+            transition: fill 0.25s 0.5s !important;
+            &:-moz-window-inactive {
+              fill-opacity: 0.48;
             }
             .identity-box-button,
             #notification-popup-box,
             #identity-permission-box,
             #trust-icon-container,
             #identity-box {
-              opacity: 0.55 !important;
-              transition: opacity 0.25s 0s !important;
-              @media (prefers-color-scheme: dark) {
-                opacity: 0.75 !important;
-              }
-              &:is(:hover, [open]) {
+              fill-opacity: 0 !important;
+              transition: fill-opacity 0.25s 0.5s !important;
+            }
+            .urlbar-page-action,
+            .urlbar-go-button,
+            #urlbar-revert-button-container,
+            .searchmode-switcher,
+            #identity-icon {
+              opacity: 0 !important;
+              transition: opacity 0.25s 0.5s !important;
+            }
+          }
+          &:has(
+            #urlbar:is(:hover, [focused], [open]),
+            .urlbar-page-action[open],
+            .identity-box-button[open],
+            #notification-popup-box[open],
+            #trust-icon-container[open]
+          ) {
+            max-width: 315px !important;
+            transition: max-width 0.25s 0s !important;
+            #urlbar {
+              fill: transparent;
+              transition: fill 0.25s 0s !important;
+              .urlbar-page-action,
+              .urlbar-go-button,
+              #urlbar-revert-button-container,
+              .searchmode-switcher,
+              #identity-icon {
                 opacity: 1 !important;
+                transition: opacity 0.25s 0s !important;
+              }
+              .identity-box-button,
+              #notification-popup-box,
+              #identity-permission-box,
+              #trust-icon-container,
+              #identity-box {
+                fill-opacity: 0.55 !important;
+                transition: fill-opacity 0.25s 0s !important;
+                @media (prefers-color-scheme: dark) {
+                  fill-opacity: 0.75 !important;
+                }
+                &:is(:hover, [open]) {
+                  fill-opacity: 1 !important;
+                }
               }
             }
           }
         }
-      }
-      #urlbar-container ~ :not(#urlbar-container ~ :not([hidden]) ~ *),
-      #wrapper-urlbar-container
-        ~ :not(#wrapper-urlbar-container ~ :not([hidden]) ~ *) {
-        anchor-name: --navbar;
-      }
-      #TabsToolbar {
-        position: absolute;
-        position-anchor: --urlbar;
-        top: 4px;
-        left: calc(anchor(right) + 3px);
-        right: anchor(--navbar left);
-        z-index: 9 !important;
-        &:-moz-window-inactive {
-          opacity: 1 !important;
+        #urlbar-container ~ :not(#urlbar-container ~ :not([hidden]) ~ *),
+        #wrapper-urlbar-container
+          ~ :not(#wrapper-urlbar-container ~ :not([hidden]) ~ *) {
+          anchor-name: --navbar;
+        }
+        #TabsToolbar {
+          position: absolute;
+          position-anchor: --urlbar;
+          top: 4px;
+          left: calc(anchor(right) + 3px);
+          right: anchor(--navbar left);
+          z-index: 9 !important;
+          &:-moz-window-inactive {
+            opacity: 1 !important;
+          }
         }
       }
     }
@@ -715,6 +748,8 @@
   .sharing-icon,
   #reset-pbm-toolbar-button,
   #wrapper-firefox-view-button,
+  #mini-window-button,
+  #wrapper-mini-window-button,
   #firefox-view-button,
   #vertical-spacer,
   #userContext-icons,
@@ -734,6 +769,10 @@
   menulist {
     --button-background-color: var(--bg2) !important;
     border: none !important;
+  }
+
+  .button-background[type="primary"] img {
+    fill: oklch(100% 0 0) !important;
   }
 
   .button-background:not([type="primary"]) {
@@ -1587,12 +1626,12 @@
     #identity-box {
       scale: 0.85;
       background: transparent !important;
-      opacity: 0.55 !important;
+      fill-opacity: 0.55 !important;
       @media (prefers-color-scheme: dark) {
-        opacity: 0.75 !important;
+        fill-opacity: 0.75 !important;
       }
       &:is(:hover, [open]) {
-        opacity: 1 !important;
+        fill-opacity: 1 !important;
       }
     }
     .urlbar-page-action {
@@ -2258,14 +2297,17 @@
     }
   }
 
-  .tabbrowser-tab[usercontextid]
-    > .tab-stack
-    > .tab-background
+  .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background {
+    position: relative !important;
     > .tab-context-line {
-    height: 5px !important;
-    width: 5px !important;
-    margin: 0 !important;
-    border-radius: 5px !important;
+      position: absolute !important;
+      height: 5px !important;
+      width: 5px !important;
+      border-radius: 5px !important;
+      margin: 0 !important;
+      inset-block: 0 !important;
+      inset-inline-start: 0 !important;
+    }
   }
 
   .tabbrowser-tab:not([selected], [pinned]) {
@@ -3081,6 +3123,9 @@
     #window-modal-dialog > .dialogOverlay > &:not(.spotlightBox) {
       margin-top: 80px !important;
     }
+    :not(.content-prompt-dialog) > .dialogOverlay > &:not(.spotlightBox) {
+      margin-top: 15px !important;
+    }
   }
 
   .dialogOverlay[topmost],
@@ -3090,6 +3135,20 @@
 
   window[role="dialog"] {
     background-color: var(--bg4) !important;
+  }
+
+  dialog[inbrowserwindow]:not([inClearOnShutdown]) {
+    #sanitizeDialogClose {
+      display: none !important;
+    }
+    #titleText {
+      grid-column: 1 !important;
+      text-align: left !important;
+    }
+  }
+
+  #sanitizeDurationChoice {
+    outline: none !important;
   }
 
   #bookmarkpropertiesdialog .expander-up,
@@ -3150,7 +3209,7 @@
       height: 35px !important;
       border-radius: 50px !important;
     }
-    #main-window {
+    #main-window:not([mini-window]) {
       min-width: 750px !important;
       appearance: -moz-sidebar !important;
     }
@@ -3515,6 +3574,7 @@
   screenshots-buttons {
     --screenshots-icon-background-color: AccentColor !important;
     top: 10px !important;
+    padding: 10px 5px !important;
     border-radius: 20px !important;
     background-color: light-dark(
       oklch(100% 0 0 / 0.55),
@@ -3534,6 +3594,27 @@
 
   #preview-image-container {
     padding: 0 !important;
+  }
+
+  .mini-window-chooser {
+    padding-inline: 5px !important;
+  }
+
+  #full-page,
+  #visible-page {
+    fill: light-dark(oklch(0% 0 0), oklch(100% 0 0)) !important;
+    color: light-dark(oklch(0% 0 0), oklch(100% 0 0)) !important;
+    background-size: 26px 26px !important;
+    background-position: center top 5px !important;
+    padding: 36px 5px 5px !important;
+    background-color: var(--bg2) !important;
+    margin-inline: 5px !important;
+    &:hover {
+      background-color: var(--bg2-hover) !important;
+    }
+    &:active {
+      background-color: var(--bg2-active) !important;
+    }
   }
 
   .browserContainer > findbar {
@@ -3926,7 +4007,7 @@
   }
 
   #main-button img[src^="chrome://browser/content/genai/assets/brands/"] {
-    content: url("chrome://global/skin/icons/highlights.svg") !important;
+    content: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='context-fill' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m 10.2635,1.8595 c -0.454,-1.147 -2.075,-1.147 -2.528,0 l -1.256,3.186 a 0.775,0.775 0 0 1 -0.435,0.435 l -3.185,1.255 c -1.147,0.453 -1.147,2.075 0,2.528 l 3.186,1.256 a 0.775,0.775 0 0 1 0.435,0.435 l 1.255,3.185 c 0.453,1.147 2.075,1.147 2.528,0 l 1.256,-3.186 a 0.775,0.775 0 0 1 0.435,-0.434 l 3.185,-1.256 c 1.147,-0.453 1.147,-2.075 0,-2.528 l -3.186,-1.256 a 0.775,0.775 0 0 1 -0.434,-0.435 z m -2.388,3.736 1.124,-2.852 1.125,2.853 a 2.275,2.275 0 0 0 1.279,1.279 l 2.852,1.124 -2.853,1.125 a 2.275,2.275 0 0 0 -1.279,1.279 l -1.124,2.852 -1.125,-2.853 a 2.275,2.275 0 0 0 -1.279,-1.279 l -2.852,-1.124 2.853,-1.125 a 2.275,2.275 0 0 0 1.279,-1.279 z m -6.432,-4.445 0.182,-0.849 c 0.086,-0.402 0.66,-0.402 0.747,0 l 0.182,0.849 a 0.381,0.381 0 0 0 0.293,0.293 l 0.849,0.182 c 0.402,0.086 0.402,0.66 0,0.747 l -0.848,0.183 a 0.38,0.38 0 0 0 -0.293,0.293 l -0.183,0.849 c -0.086,0.402 -0.66,0.402 -0.747,0 l -0.182,-0.849 a 0.38,0.38 0 0 0 -0.293,-0.293 l -0.849,-0.183 c -0.402,-0.086 -0.402,-0.66 0,-0.747 l 0.849,-0.182 a 0.38,0.38 0 0 0 0.293,-0.293 z m 0,12 0.182,-0.849 c 0.086,-0.402 0.66,-0.402 0.747,0 l 0.182,0.849 a 0.381,0.381 0 0 0 0.293,0.293 l 0.849,0.182 c 0.402,0.086 0.402,0.66 0,0.747 l -0.849,0.182 a 0.381,0.381 0 0 0 -0.293,0.293 l -0.182,0.849 c -0.086,0.402 -0.66,0.402 -0.747,0 l -0.182,-0.849 a 0.381,0.381 0 0 0 -0.293,-0.293 l -0.849,-0.182 c -0.402,-0.086 -0.402,-0.66 0,-0.747 l 0.849,-0.182 a 0.38,0.38 0 0 0 0.293,-0.293 z'/%3E%3C/svg%3E") !important;
   }
 
   #appMenu-zoom-controls {
@@ -3951,6 +4032,10 @@
   /* Sidebar */
 
   @media -moz-pref("sidebar.revamp") {
+    sidebar-main {
+      position: relative;
+    }
+
     #sidebar {
       box-shadow: none !important;
       background-color: var(--bg2) !important;
@@ -4324,6 +4409,23 @@
           }
           @media -moz-pref("gwt.sidebar") {
             background-color: var(--toolbar-background-color) !important;
+          }
+        }
+        #sidebar-box {
+          @media not -moz-pref("gwt.sidebar") {
+            visibility: collapse;
+            view-transition-name: none !important;
+            @media -moz-pref("sidebar.visibility", "expand-on-hover") {
+              visibility: visible;
+            }
+          }
+        }
+        .sidebar-splitter {
+          @media not -moz-pref("gwt.sidebar") {
+            display: none;
+            @media -moz-pref("sidebar.visibility", "expand-on-hover") {
+              display: block;
+            }
           }
         }
         #sidebar-button {

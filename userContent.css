@@ -97,6 +97,21 @@
     }
   }
 
+  dialog {
+    --button-background-color: light-dark(
+      oklch(39.4% 0 0 / 0.12),
+      oklch(73.8% 0 0 / 0.25)
+    ) !important;
+    --button-background-color-hover: light-dark(
+      oklch(39.4% 0 0 / 0.1),
+      oklch(73.8% 0 0 / 0.3)
+    ) !important;
+    --button-background-color-active: light-dark(
+      oklch(39.4% 0 0 / 0.15),
+      oklch(73.8% 0 0 / 0.2)
+    ) !important;
+  }
+
   :root[dialogroot] {
     --background-color-canvas: transparent !important;
   }
@@ -164,20 +179,17 @@
   }
 
   #screenshots-cancel-button,
-  #download,
-  #cancel,
-  #copy {
+  #face-container {
+    outline: none !important;
+  }
+
+  .screenshots-button:not(#screenshots-cancel-button) {
+    border: none !important;
+    color: oklch(100% 0 0) !important;
     outline-color: light-dark(
       color-mix(in oklch, AccentColor 55%, transparent),
       color-mix(in oklch, AccentColor 45%, oklch(45% 0 0))
     ) !important;
-  }
-
-  #cancel,
-  #copy,
-  #download {
-    border: none !important;
-    color: oklch(100% 0 0) !important;
     background-color: light-dark(
       AccentColor,
       color-mix(in oklch, AccentColor 90%, oklch(0% 0 0))
@@ -875,6 +887,9 @@
     #prefs[has-visible-prefs] > .add > th::before {
       border: none !important;
     }
+    #prefs > tr.odd {
+      background-color: var(--bg1) !important;
+    }
   }
 
   @-moz-document url-prefix("about:preferences") {
@@ -1260,6 +1275,23 @@
     .contentSearchSuggestionTable,
     .confirmation-dialog {
       box-shadow: var(--bs1) !important;
+    }
+    .modal {
+      --button-background-color-ghost: light-dark(
+        oklch(39.4% 0 0 / 0.12),
+        oklch(73.8% 0 0 / 0.25)
+      ) !important;
+      --button-background-color-ghost-hover: light-dark(
+        oklch(39.4% 0 0 / 0.1),
+        oklch(73.8% 0 0 / 0.3)
+      ) !important;
+      --button-background-color-ghost-active: light-dark(
+        oklch(39.4% 0 0 / 0.15),
+        oklch(73.8% 0 0 / 0.2)
+      ) !important;
+    }
+    .icon-clear-input {
+      --button-background-color-ghost: transparent !important;
     }
     .customize-menu {
       background-color: var(--bg4) !important;
